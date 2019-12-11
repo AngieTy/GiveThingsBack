@@ -1,0 +1,11 @@
+/* moj globalny css */
+@import "./settings/colors";
+@import "./settings/reset";
+@import "./settings/fonts";
+html,
+body {
+  font-family: $font-base;
+  div {
+    background-color: $fourthColor;
+  }
+}
