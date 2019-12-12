@@ -11,7 +11,7 @@ import HomeThreeColumns from "./HomeThreeColumns";
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="home">
         <HomeHeader />
         <HomeThreeColumns />
         <HomeFourSteps />
