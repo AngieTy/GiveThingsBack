@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HomeHeaderNav from "./HomeHeaderNav";
+import HomeHeaderBtns from "./HomeHeaderBtns";
 import HeaderImg from "../assets/assets/Home-Hero-Image.jpg";
 
 class HomeHeader extends Component {
@@ -9,7 +10,10 @@ class HomeHeader extends Component {
         <div className="home-header-img">
           <img src={HeaderImg} alt="bleble" />
         </div>
-        <HomeHeaderNav />
+        <div className="home-header-container">
+          <HomeHeaderNav />
+          <HomeHeaderBtns />
+        </div>
       </header>
     );
   }

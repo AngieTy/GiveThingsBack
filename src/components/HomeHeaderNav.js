@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 class HomeHeaderNav extends Component {
+  componentDidMount() {}
   render() {
     return (
       <div className="home-nav-box">
