@@ -1,0 +1,39 @@
+.home-logs {
+  margin-top: 37px;
+  text-align: right;
+  .home-log-btn,
+  .home-register-btn {
+    border: none;
+    margin-left: 4px;
+    color: $fourthColor;
+    background-color: white;
+    font-size: 0.875rem;
+    padding: 9px 10px;
+  }
+  .home-register-btn {
+    border: 0.75px solid $thirdColor;
+  }
+}
+.home-nav {
+  margin-top: 26px;
+  .home-nav-list {
+    list-style: none;
+    @include flex(row, stretch);
+    li {
+      font-size: 1.125rem;
+      margin-left: 4px;
+      border: 0.75px solid white;
+      transition: 0.3s;
+      &:hover {
+        border-color: $fifthColor;
+      }
+      a {
+        display: inline-block;
+        line-height: 24px;
+        padding: 9px 20px;
+        color: $fifthColor;
+        text-decoration: none;
+      }
+    }
+  }
+}

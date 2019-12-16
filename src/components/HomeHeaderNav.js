@@ -1,13 +1,18 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 
 class HomeHeaderNav extends Component {
-  componentDidMount() {}
   render() {
     return (
       <div className="home-nav-box">
         <div className="home-logs">
-          <button className="home-log-btn">Zaloguj się</button>
-          <button className="home-register-btn">Załóż konto</button>
+          <Link to="/logowanie">
+            <button className="home-log-btn"> Zaloguj się </button>
+          </Link>
+          <Link to="/rejestracja">
+            <button className="home-register-btn">Załóż konto</button>
+          </Link>
         </div>
         <nav className="home-nav">
           <ul className="home-nav-list">

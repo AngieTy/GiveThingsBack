@@ -1,0 +1,36 @@
+.home-three-columns {
+  width: 100%;
+  @include flex(row, center);
+  background-color: hotpink;
+  background-image: url("/src/assets/assets/3_cols_background.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  justify-content: space-around;
+  .three-columns-box {
+    @include flex(column, center);
+    text-align: center;
+    width: 25%;
+    margin: 46px 0 60px 0;
+    .three-columns-header {
+      font-size: 5.625rem;
+      color: $secondColor;
+      font-weight: 300;
+      line-height: 7.625rem;
+    }
+    .three-columns-title {
+      font-size: 1.125rem;
+      color: $fifthColor;
+      line-height: 1.875rem;
+      letter-spacing: -0.36px;
+      text-transform: uppercase;
+      padding: 10px 0 23px 0;
+    }
+    .three-columns-content {
+      font-family: $font-alt;
+      font-size: 1rem;
+      line-height: 1.55rem;
+      letter-spacing: -0.32px;
+      font-weight: 300;
+    }
+  }
+}

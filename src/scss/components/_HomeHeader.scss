@@ -1,0 +1,21 @@
+.home-header {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  .home-header-img {
+    position: relative;
+    width: 40%;
+    height: 100vh;
+    img {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .home-header-container {
+    @include flex(column, flex-end);
+    width: 55%;
+    height: 30vh;
+  }
+}

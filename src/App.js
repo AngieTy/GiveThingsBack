@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Home from "./components/Home";
-import HomeForm from "./components/HomeForm";
+import Login from "./components/Login";
 import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
 
 class App extends Component {
@@ -11,6 +11,11 @@ class App extends Component {
           <>
             <Route exact path="/" component={Home} />
           </>
+          <Switch>
+            <Route path="/logowanie">
+              <Login />
+            </Route>
+          </Switch>
         </HashRouter>
       </>
     );
