@@ -4,9 +4,7 @@
   align-self: center;
   text-align: center;
   .home-header-banner {
-    letter-spacing: -0.76px;
-    line-height: 3rem;
-    font-size: 2rem;
+    @include header;
   }
   img {
     padding: 25px 0 55px 0;
@@ -15,16 +13,7 @@
     @include flex(row, stretch);
     justify-content: space-evenly;
     button {
-      background-color: white;
-      cursor: pointer;
-      font-family: $font-base;
-      font-size: 2rem;
-      font-weight: 300;
-      text-transform: uppercase;
-      width: 250px;
-      height: 100%;
-      padding: 13px 30px;
-      border: 0.75px solid $fifthColor;
+      @include button;
     }
   }
 }

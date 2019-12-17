@@ -10,7 +10,7 @@ class HomeHeaderBtns extends Component {
         <h2 className="home-header-banner">
           Oddaj niechciane rzeczy w zaufane ręce
         </h2>
-        <img src={BtnsImg} />
+        <img src={BtnsImg} alt="image_decoration" />
         <div className="header-btns-box">
           <Link to="/logowanie">
             <button className="give-things-btn">Oddaj rzeczy</button>

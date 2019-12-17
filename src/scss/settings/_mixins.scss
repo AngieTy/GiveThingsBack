@@ -3,3 +3,22 @@
   flex-direction: $flexDirection;
   align-items: $alignItems;
 }
+
+@mixin header {
+  letter-spacing: -0.76px;
+  line-height: 3rem;
+  font-size: 2rem;
+}
+
+@mixin button {
+  background-color: white;
+  cursor: pointer;
+  font-family: $font-base;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  width: 250px;
+  height: 100%;
+  padding: 13px 30px;
+  border: 0.75px solid $fifthColor;
+}
