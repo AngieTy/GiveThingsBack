@@ -5,11 +5,12 @@ import SecondIcon from "../assets/assets/Icon-2.svg";
 import ThirdIcon from "../assets/assets/Icon-3.svg";
 import FourthIcon from "../assets/assets/Icon-4.svg";
 import { Link } from "react-router-dom";
+// import { Link as ScrollLink } from "react-scroll";
 
 class HomeFourSteps extends Component {
   render() {
     return (
-      <section className="home-four-steps">
+      <section className="home-four-steps" id="four-steps">
         <div className="home-steps-header">
           <h2 className="steps-header-title">Wystarczą 4 proste kroki</h2>
           <img src={ImgDeco} alt="img_decoration" />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import { HashRouter, Route, Link, Switch, NavLink } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {

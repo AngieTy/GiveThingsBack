@@ -6,7 +6,7 @@ import HeaderImg from "../assets/assets/Home-Hero-Image.jpg";
 class HomeHeader extends Component {
   render() {
     return (
-      <header className="home-header">
+      <header className="home-header" name="header">
         <div className="home-header-img">
           <img src={HeaderImg} alt="bleble" />
         </div>

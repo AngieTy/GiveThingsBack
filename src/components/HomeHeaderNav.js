@@ -17,19 +17,64 @@ class HomeHeaderNav extends Component {
         <nav className="home-nav">
           <ul className="home-nav-list">
             <li>
-              <a href="#">Start</a>
+              <ScrollLink
+                activeClass="active"
+                to="header"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Start
+              </ScrollLink>
             </li>
             <li>
-              <a href="#">O co chodzi?</a>
+              <ScrollLink
+                activeClass="active"
+                to="four-steps"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                O co chodzi?
+              </ScrollLink>
             </li>
             <li>
-              <a href="#">O nas</a>
+              <ScrollLink
+                activeClass="active"
+                to="about-us"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                O nas
+              </ScrollLink>
             </li>
             <li>
-              <a href="#">Fundacja i organizacja</a>
+              <ScrollLink
+                activeClass="active"
+                to="about-us"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Fundacja i organizacja
+              </ScrollLink>
             </li>
             <li>
-              <a href="#">Kontakt</a>
+              <ScrollLink
+                activeClass="active"
+                to="about-us"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+              >
+                Kontakt
+              </ScrollLink>
             </li>
           </ul>
         </nav>
