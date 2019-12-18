@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 class HomeFourSteps extends Component {
   render() {
     return (
-      <section className="home-four-steps" id="four-steps">
+      <section className="home-four-steps" name="four-steps">
         <div className="home-steps-header">
           <h2 className="steps-header-title">Wystarczą 4 proste kroki</h2>
           <img src={ImgDeco} alt="img_decoration" />

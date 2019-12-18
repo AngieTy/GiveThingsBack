@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import {
+  Link as ScrollLink,
+  DirectLink,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller
+} from "react-scroll";
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
 
 class HomeHeaderNav extends Component {
   render() {

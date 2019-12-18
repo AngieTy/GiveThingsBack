@@ -6,7 +6,7 @@ import ImgSign from "../assets/assets/Signature.svg";
 class HomeAboutUs extends Component {
   render() {
     return (
-      <section className="home-about" name="about-us">
+      <section name="about-us" className="home-about">
         <div className="about-container">
           <h2 className="about-header">O nas</h2>
           <img src={ImgDeco} alt="decoration" />
