@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 class HomeHelpPagination extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isClicked: true,
       paginationElements: [
@@ -60,7 +60,6 @@ class HomeHelpPagination extends Component {
           needs: "pizza, papryka, cebula, ser, ser, ser"
         }
       ],
-
       currentPage: 1,
       itemsPerPage: 3
     };
@@ -111,7 +110,7 @@ class HomeHelpPagination extends Component {
     return (
       <div className="home-help-pagination">
         <div className="pagination-container">{elements}</div>
-        <div class="pagination-pages">{pageNumbers}</div>
+        <div className="pagination-pages">{pageNumbers}</div>
       </div>
     );
   }

@@ -8,7 +8,7 @@ class HomeHeader extends Component {
     return (
       <header className="home-header" name="header">
         <div className="home-header-img">
-          <img src={HeaderImg} alt="bleble" />
+          {/* <img src={HeaderImg} alt="bleble" /> */}
         </div>
         <div className="home-header-container">
           <HomeHeaderNav />
