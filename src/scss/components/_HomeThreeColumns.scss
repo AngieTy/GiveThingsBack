@@ -1,7 +1,7 @@
 .home-three-columns {
   width: 100%;
   @include flex(row, center);
-  //   background-color: hotpink;
+
   background-image: url("../../assets/assets/3_cols_background.png");
   background-size: 100%;
   justify-content: space-around;

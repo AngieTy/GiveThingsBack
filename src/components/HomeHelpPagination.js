@@ -10,6 +10,9 @@ class HomeHelpPagination extends Component {
   }
 
   handleClick = (event, i) => {
+    this.setState({
+      currentPage: 1
+    })
     if (
       this.props.areClicked.isFundationsClicked === true ||
       this.props.areClicked.isOrganizationsClicked === true ||
@@ -18,11 +21,8 @@ class HomeHelpPagination extends Component {
       this.setState({
         currentPage: 1
       });
-    } else {
-      this.setState({
-        currentPage: i
-      });
     }
+    
   };
 
   render() {

@@ -3,19 +3,12 @@
   display: flex;
   width: 100%;
   .home-header-img {
-    // position: relative;
     width: 40%;
     height: 100vh;
     background-image: url("../../assets/assets/Home-Hero-Image.jpg");
     background-position: right bottom;
     background-size: 170%;
     background-repeat: no-repeat;
-    // img {
-    // height: 100%;
-    // position: absolute;
-    // top: 0;
-    // right: 0;
-    // }
   }
   .home-header-container {
     @include flex(column, flex-end);

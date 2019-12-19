@@ -176,7 +176,7 @@ class HomeHelp extends Component {
     }
 
     return (
-      <section className="home-help">
+      <section className="home-help" id={this.props.name} >
         <h2 className="home-help-header">Komu pomagamy</h2>
         <img src={ImgDeco} alt="decoration" />
         <div className="help-btns-box">

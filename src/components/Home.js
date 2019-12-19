@@ -7,16 +7,19 @@ import HomeFourSteps from "./HomeFourSteps";
 import HomeHelp from "./HomeHelp";
 import HomeThreeColumns from "./HomeThreeColumns";
 
+
+
 class Home extends Component {
   render() {
     return (
       <div className="home">
-        <HomeHeader />
+      
+        <HomeHeader name="HomeHeader" />
         <HomeThreeColumns />
-        <HomeFourSteps />
-        <HomeAboutUs />
-        <HomeHelp />
-        <HomeForm />
+        <HomeFourSteps name="HomeSteps" />
+        <HomeAboutUs name="HomeAbout" />
+        <HomeHelp name="HomeHelp" />
+        <HomeForm name="HomeForm" />
         <HomeFooter />
       </div>
     );

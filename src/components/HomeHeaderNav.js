@@ -1,14 +1,9 @@
 import React, { Component } from "react";
-import {
-  Link as ScrollLink,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller
-} from "react-scroll";
 import { Link } from "react-router-dom";
+import {Link as ScrollLink} from "react-scroll";
+
+// let ScrollLink = Scroll.Link;
+
 
 class HomeHeaderNav extends Component {
   render() {
@@ -24,14 +19,15 @@ class HomeHeaderNav extends Component {
         </div>
         <nav className="home-nav">
           <ul className="home-nav-list">
-            <li>
+           <li>
               <ScrollLink
                 activeClass="active"
-                to="header"
+                to="HomeHeader"
                 spy={true}
                 smooth={true}
                 offset={50}
                 duration={500}
+            
               >
                 Start
               </ScrollLink>
@@ -39,11 +35,12 @@ class HomeHeaderNav extends Component {
             <li>
               <ScrollLink
                 activeClass="active"
-                to="four-steps"
+                to="HomeSteps"
                 spy={true}
                 smooth={true}
                 offset={50}
                 duration={500}
+          
               >
                 O co chodzi?
               </ScrollLink>
@@ -51,11 +48,12 @@ class HomeHeaderNav extends Component {
             <li>
               <ScrollLink
                 activeClass="active"
-                to="about-us"
+                to="HomeAbout"
                 spy={true}
                 smooth={true}
                 offset={50}
                 duration={500}
+            
               >
                 O nas
               </ScrollLink>
@@ -63,11 +61,12 @@ class HomeHeaderNav extends Component {
             <li>
               <ScrollLink
                 activeClass="active"
-                to="about-us"
+                to="HomeHelp"
                 spy={true}
                 smooth={true}
                 offset={50}
                 duration={500}
+           
               >
                 Fundacja i organizacja
               </ScrollLink>
@@ -75,15 +74,17 @@ class HomeHeaderNav extends Component {
             <li>
               <ScrollLink
                 activeClass="active"
-                to="about-us"
+                to="HomeForm"
                 spy={true}
                 smooth={true}
                 offset={50}
                 duration={500}
+          
               >
                 Kontakt
               </ScrollLink>
             </li>
+             
           </ul>
         </nav>
       </div>

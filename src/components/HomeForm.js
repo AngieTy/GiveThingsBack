@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class HomeForm extends Component {
   render() {
     return (
-      <section className="home-form">
+      <section  className="home-form" id={this.props.name} >
         <div className="home-form-container">
           <div className="home-opacity-modifier">
             <form className="home-form-form"></form>
