@@ -1,7 +1,6 @@
 .home-form {
   margin-top: 60px;
-  height: 100vh;
-
+  height: 90vh;
   width: 100%;
   overflow: hidden;
   .home-form-container {
@@ -17,23 +16,72 @@
       .home-form-form {
         width: 50%;
         height: 100%;
-        border: 1px solid black;
         float: right;
         @include flex(column, center);
         justify-content: center;
         .form-header {
           @include header;
-          padding-bottom: 20px;
+          font-size: 1.7rem;
+          padding-bottom: 10px;
         }
         .form-img {
-          width: 35%;
-          margin-bottom: 60px;
+          width: 33%;
+          margin-bottom: 20px;
         }
         .form-inputs-box {
-          width: 100%;
+          margin-bottom: 20px;
+          width: 70%;
+          @include flex(row, flex-start);
+          justify-content: space-between;
           .form-input-title {
-            @include flex(row, center);
+            width: 48%;
+            font-weight: 600;
+            line-height: 60px;
+            @include flex(column, stretch);
+            input {
+              outline: none;
+              height: 6vh;
+              line-height: 11vh;
+              padding: 0;
+              font-size: 1.1rem;
+              border: none;
+              border-bottom: 1px solid $sixthColor;
+              &::placeholder {
+                color: rgba(60, 60, 60, 0.26);
+              }
+            }
           }
+        }
+        .form-text-box {
+          width: 70%;
+          label {
+            font-weight: 600;
+            line-height: 60px;
+            width: 100%;
+            @include flex(column, stretch);
+            .form-text-area {
+              color: rgba(60, 60, 60, 0.26);
+              border: none;
+              border-bottom: 1px solid $sixthColor;
+              outline: none;
+              font-size: 1.1rem;
+              line-height: 1.2rem;
+              height: 18vh;
+              resize: none;
+              font-family: $font-base;
+              margin-bottom: 30px;
+            }
+          }
+        }
+        .form-button {
+          cursor: pointer;
+          align-self: flex-end;
+          margin-right: 15%;
+          font-size: 1.2rem;
+          font-weight: 300;
+          padding: 13px 52px;
+          background-color: white;
+          border: 0.75px solid $fifthColor;
         }
       }
     }
