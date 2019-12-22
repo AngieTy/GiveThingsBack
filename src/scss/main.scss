@@ -16,7 +16,7 @@ body {
 }
 .home {
   @include flex(column, center);
-
+  position: relative;
 }
 
 @import "./components/HomeHeader";
@@ -28,3 +28,4 @@ body {
 @import "./components/HomeHelp";
 @import "./components/HomeHelpPagination";
 @import "./components/HomeForm";
+@import "./components/HomeFooter";

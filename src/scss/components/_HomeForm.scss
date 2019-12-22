@@ -1,8 +1,9 @@
 .home-form {
   margin-top: 60px;
-  height: 90vh;
+  height: 115vh;
   width: 100%;
   overflow: hidden;
+  // padding-bottom: 12vh;
   .home-form-container {
     background-image: url("../../assets/assets/Background-Contact-Form.jpg");
     background-size: contain;
@@ -82,6 +83,9 @@
           padding: 13px 52px;
           background-color: white;
           border: 0.75px solid $fifthColor;
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
