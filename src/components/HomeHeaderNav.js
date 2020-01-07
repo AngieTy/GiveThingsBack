@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {Link as ScrollLink} from "react-scroll";
-
-// let ScrollLink = Scroll.Link;
-
+import { Link as ScrollLink } from "react-scroll";
 
 class HomeHeaderNav extends Component {
   render() {
@@ -19,7 +16,7 @@ class HomeHeaderNav extends Component {
         </div>
         <nav className="home-nav">
           <ul className="home-nav-list">
-           <li>
+            <li>
               <ScrollLink
                 activeClass="active"
                 to="HomeHeader"
@@ -27,7 +24,6 @@ class HomeHeaderNav extends Component {
                 smooth={true}
                 offset={50}
                 duration={500}
-            
               >
                 Start
               </ScrollLink>
@@ -40,7 +36,6 @@ class HomeHeaderNav extends Component {
                 smooth={true}
                 offset={50}
                 duration={500}
-          
               >
                 O co chodzi?
               </ScrollLink>
@@ -53,7 +48,6 @@ class HomeHeaderNav extends Component {
                 smooth={true}
                 offset={50}
                 duration={500}
-            
               >
                 O nas
               </ScrollLink>
@@ -66,7 +60,6 @@ class HomeHeaderNav extends Component {
                 smooth={true}
                 offset={50}
                 duration={500}
-           
               >
                 Fundacja i organizacja
               </ScrollLink>
@@ -79,12 +72,10 @@ class HomeHeaderNav extends Component {
                 smooth={true}
                 offset={50}
                 duration={500}
-          
               >
                 Kontakt
               </ScrollLink>
             </li>
-             
           </ul>
         </nav>
       </div>

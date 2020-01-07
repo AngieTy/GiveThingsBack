@@ -1,4 +1,4 @@
-.login {
+.registration {
   .home-logs {
     margin: 0;
     padding-top: 37px;
@@ -9,25 +9,25 @@
     margin-right: 5%;
   }
 
-  .login-container {
+  .registration-container {
     @include flex(column, center);
     margin-top: 50px;
-    .login-header {
+    .registration-header {
       @include header;
       margin-bottom: 10px;
     }
     img {
       width: 16%;
     }
-    .login-form {
+    .registration-form {
       margin-top: 30px;
       width: 30%;
       @include flex(column, center);
-      .login-input-box {
+      .registration-input-box {
         width: 70%;
         background-color: $firstColor;
         @include flex(column, center);
-        .login-input-title {
+        .registration-input-title {
           @include flex(column, stretch);
           margin-bottom: 30px;
           &:first-child {
@@ -43,7 +43,7 @@
           }
         }
       }
-      .login-btns-box {
+      .registration-btns-box {
         width: 88%;
         @include flex(row, stretch);
         justify-content: space-between;

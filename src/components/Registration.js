@@ -1,28 +1,32 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import HomeHeaderNav from "./HomeHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
-import { Link } from "react-router-dom";
 
-class Login extends Component {
+class Registration extends Component {
   render() {
     return (
-      <section className="login">
+      <section className="registration">
         <HomeHeaderNav />
-        <main className="login-container">
-          <h2 className="login-header">Zaloguj się</h2>
+        <main className="registration-container">
+          <h2 className="registration-header">Zarejestruj się</h2>
           <img src={ImgDeco} alt="decoration_img" />
-          <form className="login-form">
-            <div className="login-input-box">
-              <label className="login-input-title">
+          <form className="registration-form">
+            <div className="registration-input-box">
+              <label className="registration-input-title">
                 Email
                 <input type="email" name="email" />
               </label>
-              <label className="login-input-title">
+              <label className="registration-input-title">
                 Hasło
                 <input type="password" name="password" />
               </label>
+              <label className="registration-input-title">
+                Powtórz hasło
+                <input type="password" name="password" />
+              </label>
             </div>
-            <div className="login-btns-box">
+            <div className="registration-btns-box">
               <Link to="/rejestracja">
                 <button className="btn-register">Załóż konto</button>
               </Link>
@@ -37,4 +41,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Registration;
