@@ -37,6 +37,7 @@
   .four-steps-button {
     padding: 35px 0 80px 0;
     .give-things-btn {
+      outline: none;
       @include button;
     }
   }

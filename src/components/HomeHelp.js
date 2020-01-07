@@ -165,18 +165,32 @@ class HomeHelp extends Component {
 
     if (isFundationsClicked) {
       pagination = (
-        <HomeHelpPagination data={fundations} areClicked={this.state} />
+        <HomeHelpPagination
+          data={fundations}
+          areClicked={this.state}
+          startPage={1}
+        />
       );
     } else if (isOrganizationsClicked) {
       pagination = (
-        <HomeHelpPagination data={organizations} areClicked={this.state} />
+        <HomeHelpPagination
+          data={organizations}
+          areClicked={this.state}
+          startPage={1}
+        />
       );
     } else {
-      pagination = <HomeHelpPagination data={locals} areClicked={this.state} />;
+      pagination = (
+        <HomeHelpPagination
+          data={locals}
+          areClicked={this.state}
+          startPage={1}
+        />
+      );
     }
 
     return (
-      <section className="home-help" id={this.props.name} >
+      <section className="home-help" id={this.props.name}>
         <h2 className="home-help-header">Komu pomagamy</h2>
         <img src={ImgDeco} alt="decoration" />
         <div className="help-btns-box">

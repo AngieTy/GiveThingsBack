@@ -14,16 +14,16 @@ class HomeHelpPagination extends Component {
       currentPage: 1
     });
     if (
-      this.props.areClicked.isFundationsClicked === true ||
-      this.props.areClicked.isOrganizationsClicked === true ||
-      this.props.areClicked.isLocalsClicked === true
+      this.props.areClicked.isFundationsClicked === false ||
+      this.props.areClicked.isOrganizationsClicked === false ||
+      this.props.areClicked.isLocalsClicked === false
     ) {
       this.setState({
-        currentPage: i
+        currentPage: 1
       });
     } else {
       this.setState({
-        currentPage: 1
+        currentPage: i
       });
     }
   };
