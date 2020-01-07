@@ -1,0 +1,39 @@
+.logout {
+  .home-logs {
+    margin: 0;
+    padding-top: 37px;
+    margin-right: 6%;
+  }
+  .home-nav-list {
+    justify-content: flex-end;
+    margin-right: 5%;
+  }
+
+  .logout-container {
+    @include flex(column, center);
+    margin-top: 80px;
+    .logout-header {
+      @include header;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 16%;
+      margin: 30px 0;
+    }
+    .btn-main-site {
+      outline: none;
+      display: inline-block;
+      padding: 13px 15px;
+      font-family: $font-base;
+      font-weight: 300;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 0.75px solid white;
+      background-color: white;
+      &:hover {
+        border-color: $sixthColor;
+      }
+    }
+  }
+}
