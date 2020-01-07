@@ -1,0 +1,69 @@
+.login {
+  .home-logs {
+    margin: 0;
+    padding-top: 37px;
+    margin-right: 6%;
+  }
+  .home-nav-list {
+    justify-content: flex-end;
+    margin-right: 5%;
+  }
+
+  .login-container {
+    @include flex(column, center);
+    margin-top: 50px;
+    .login-header {
+      @include header;
+      margin-bottom: 10px;
+    }
+    img {
+      width: 16%;
+    }
+    .login-form {
+      margin-top: 30px;
+      width: 30%;
+      @include flex(column, center);
+      .login-input-box {
+        width: 70%;
+        background-color: $firstColor;
+        @include flex(column, center);
+        .login-input-title {
+          @include flex(column, stretch);
+          margin-bottom: 30px;
+          &:first-child {
+            margin-top: 30px;
+          }
+          input {
+            outline: none;
+            border: none;
+            background-color: $firstColor;
+            border-bottom: 0.75px solid $sixthColor;
+            font-size: 1rem;
+            line-height: 2.2rem;
+          }
+        }
+      }
+      .login-btns-box {
+        width: 88%;
+        @include flex(row, stretch);
+        justify-content: space-between;
+        background-color: white;
+        margin-top: 30px;
+        .btn-register,
+        .btn-login {
+          padding: 13px 15px;
+          font-family: $font-base;
+          font-weight: 300;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: 0.3s;
+          border: 0.75px solid white;
+          background-color: white;
+          &:hover {
+            border-color: $sixthColor;
+          }
+        }
+      }
+    }
+  }
+}

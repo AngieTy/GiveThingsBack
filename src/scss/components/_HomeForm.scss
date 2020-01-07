@@ -3,7 +3,6 @@
   height: 115vh;
   width: 100%;
   overflow: hidden;
-  // padding-bottom: 12vh;
   .home-form-container {
     background-image: url("../../assets/assets/Background-Contact-Form.jpg");
     background-size: contain;
@@ -40,6 +39,7 @@
             line-height: 60px;
             @include flex(column, stretch);
             input {
+              background-color: transparent;
               outline: none;
               height: 6vh;
               line-height: 11vh;
@@ -61,6 +61,7 @@
             width: 100%;
             @include flex(column, stretch);
             .form-text-area {
+              background-color: transparent;
               color: rgba(60, 60, 60, 0.26);
               border: none;
               border-bottom: 1px solid $sixthColor;
@@ -81,7 +82,7 @@
           font-size: 1.2rem;
           font-weight: 300;
           padding: 13px 52px;
-          background-color: white;
+          background-color: transparent;
           border: 0.75px solid $fifthColor;
           &:focus {
             outline: none;

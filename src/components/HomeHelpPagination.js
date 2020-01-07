@@ -12,17 +12,20 @@ class HomeHelpPagination extends Component {
   handleClick = (event, i) => {
     this.setState({
       currentPage: 1
-    })
+    });
     if (
       this.props.areClicked.isFundationsClicked === true ||
       this.props.areClicked.isOrganizationsClicked === true ||
       this.props.areClicked.isLocalsClicked === true
     ) {
       this.setState({
+        currentPage: i
+      });
+    } else {
+      this.setState({
         currentPage: 1
       });
     }
-    
   };
 
   render() {
