@@ -1,47 +1,98 @@
 import React, { Component } from "react";
 import ImgDeco from "../assets/assets/Decoration.svg";
 
+const validEmailRegex = RegExp(
+  // eslint-disable-next-line
+  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+const validateForm = errors => {
+  let valid = true;
+  Object.values(errors).forEach(val => val.length > 0 && (valid = false));
+  return valid;
+};
+
 class HomeForm extends Component {
   state = {
-    isLogged: false,
     name: "",
     email: "",
-    errors: [],
     textarea: "",
-    user: null
+    errors: {
+      name: "",
+      email: "",
+      textarea: ""
+    }
   };
 
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
-  };
-
-  handleFormSubmit = e => {
     e.preventDefault();
+    const { name, value } = e.target;
+    let errors = this.state.errors;
 
-    const { name, email, textarea } = this.state;
-    const errors = [];
-
-    if (name.length === 0) {
-      errors.push("Pole nie może być puste!");
+    // eslint-disable-next-line default-case
+    switch (name) {
+      case "name":
+        errors.name = value.length < 1 ? "Pole nie może być puste." : "";
+        break;
+      case "email":
+        errors.email = validEmailRegex.test(value)
+          ? ""
+          : "Email nie jest poprawny.";
+        break;
+      case "textarea":
+        errors.textarea =
+          value.length < 120 ? "Minimalna liczba znaków to 120." : "";
+        break;
+      default:
+        break;
     }
 
-    if (email.length === 0) {
-      errors.push("Pole musi być poprawne!");
-    }
-
-    if (textarea.length < 120) {
-      errors.push("Pole musi zawierać minimum 120 znaków.");
-    }
+    this.setState({ errors, [name]: value }, () => {
+      console.log(errors);
+    });
   };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    if (validateForm(this.state.errors)) {
+      console.info("Poprawny formularz");
+    } else {
+      console.error("Nieprawidłowy formularz");
+    }
+
+    console.log("User name:" + this.state.name);
+    console.log("User email:" + this.state.email);
+    console.log("User message:" + this.state.textarea);
+
+    const url = "https://fer-api.coderslab.pl/v1/portfolio/contact.";
+    const data = {
+      name: this.state.name,
+      email: this.state.email,
+      textarea: this.state.textarea
+    };
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(resp => {
+        if (resp.ok) return resp.json();
+        else throw new Error("Błąd sieci");
+      })
+      .catch(error => console.error("Error: ", error))
+      .then(response => console.log("Success: ", response));
+  };
+
   render() {
     const { name, email, textarea, errors } = this.state;
     return (
       <section className="home-form" id={this.props.name}>
         <div className="home-form-container">
           <div className="home-opacity-modifier clearfix">
-            <form className="home-form-form" onSubmit={this.handleFormSubmit}>
+            <form className="home-form-form" onSubmit={this.handleSubmit}>
               <h2 className="form-header">Skontaktuj się z nami</h2>
               <img src={ImgDeco} alt="image_decoration" className="form-img" />
               <div className="form-inputs-box">
@@ -54,12 +105,11 @@ class HomeForm extends Component {
                     placeholder="Angelika"
                     onChange={this.handleChange}
                   />
-                  <div className="input-alert">
-                    {errors.map((error, i) => (
-                      <p key={i}>{error}</p>
-                    ))}
-                  </div>
+                  {errors.name.length > 0 && (
+                    <span className="error">{errors.name}</span>
+                  )}
                 </label>
+
                 <label className="form-input-title">
                   Wpisz swój email
                   <input
@@ -69,22 +119,26 @@ class HomeForm extends Component {
                     placeholder="abc@xyz.pl"
                     onChange={this.handleChange}
                   />
+                  {errors.email.length > 0 && (
+                    <span className="error">{errors.email}</span>
+                  )}
                 </label>
               </div>
               <div className="form-text-box">
                 <label>
                   Wpisz swoją wiadomość
-                  <textarea className="form-text-area">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </textarea>
+                  <textarea
+                    className="form-text-area"
+                    name="textarea"
+                    value={textarea}
+                    onChange={this.handleChange}
+                  />
+                  {errors.textarea.length < 120 && (
+                    <span className="error">{errors.textarea}</span>
+                  )}
                 </label>
               </div>
-              <button className="form-button" onClick={this.handleSendForm}>
-                Wyślij
-              </button>
+              <button className="form-button">Wyślij</button>
             </form>
           </div>
         </div>

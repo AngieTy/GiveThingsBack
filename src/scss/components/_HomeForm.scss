@@ -33,7 +33,15 @@
           width: 70%;
           @include flex(row, flex-start);
           justify-content: space-between;
+          .error {
+            position: absolute;
+            color: red;
+            bottom: -43px;
+            left: 0;
+            font-size: 0.8rem;
+          }
           .form-input-title {
+            position: relative;
             width: 48%;
             font-weight: 600;
             line-height: 60px;
@@ -54,11 +62,19 @@
           }
         }
         .form-text-box {
+          position: relative;
           width: 70%;
           label {
             font-weight: 600;
             line-height: 60px;
             width: 100%;
+            .error {
+              position: absolute;
+              bottom: -14px;
+              left: 0;
+              color: red;
+              font-size: 0.8rem;
+            }
             @include flex(column, stretch);
             .form-text-area {
               background-color: transparent;
