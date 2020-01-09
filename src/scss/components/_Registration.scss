@@ -11,7 +11,7 @@
 
   .registration-container {
     @include flex(column, center);
-    margin-top: 50px;
+    margin-top: 40px;
     .registration-header {
       @include header;
       margin-bottom: 10px;
@@ -21,17 +21,29 @@
     }
     .registration-form {
       margin-top: 30px;
-      width: 30%;
+      width: 33%;
       @include flex(column, center);
       .registration-input-box {
-        width: 70%;
+        width: 67%;
         background-color: $firstColor;
         @include flex(column, center);
         .registration-input-title {
+          width: 70%;
+          position: relative;
           @include flex(column, stretch);
           margin-bottom: 30px;
+          .error {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            color: red;
+            font-size: 0.8rem;
+          }
           &:first-child {
             margin-top: 30px;
+          }
+          &:last-child {
+            margin-bottom: 40px;
           }
           input {
             outline: none;
