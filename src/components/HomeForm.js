@@ -1,16 +1,6 @@
 import React, { Component } from "react";
 import ImgDeco from "../assets/assets/Decoration.svg";
 
-const validEmailRegex = RegExp(
-  // eslint-disable-next-line
-  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-);
-const validateForm = errors => {
-  let valid = true;
-  Object.values(errors).forEach(val => val.length > 0 && (valid = false));
-  return valid;
-};
-
 class HomeForm extends Component {
   state = {
     name: "",
@@ -27,66 +17,78 @@ class HomeForm extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    e.preventDefault();
-    const { name, value } = e.target;
-    let errors = this.state.errors;
-
-    // eslint-disable-next-line default-case
-    switch (name) {
-      case "name":
-        errors.name = value.length < 1 ? "Pole nie może być puste." : "";
-        break;
-      case "email":
-        errors.email = validEmailRegex.test(value)
-          ? ""
-          : "Email nie jest poprawny.";
-        break;
-      case "textarea":
-        errors.textarea =
-          value.length < 120 ? "Minimalna liczba znaków to 120." : "";
-        break;
-      default:
-        break;
-    }
-
-    // this.setState({ errors, [name]: value }, () => {
-    //   console.log(errors);
-    // });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    if (validateForm(this.state.errors)) {
-      console.info("Poprawny formularz");
-    } else {
-      console.error("Nieprawidłowy formularz");
-    }
 
-    // console.log("User name:" + this.state.name);
-    // console.log("User email:" + this.state.email);
-    // console.log("User message:" + this.state.textarea);
-
-    const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
-    const data = {
-      name: this.state.name,
-      email: this.state.email,
-      textarea: this.state.textarea
+    const validateEmail = email => {
+      const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
     };
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-        // "X-Auth-Token": "20200108224609"
-      },
-      body: JSON.stringify(data)
-    })
-      .then(resp => {
-        if (resp.ok === true) {
-          console.log(resp);
+    const { name, email, textarea } = this.state;
+
+    if (name.length < 1) {
+      this.setState({
+        errors: {
+          name: "Pole nie może być puste."
         }
+      });
+      console.log("sukces");
+    } else if (!validateEmail(email)) {
+      this.setState({
+        errors: {
+          email: "Email nie jest poprawny."
+        }
+      });
+      console.log("sukces2");
+    } else if (textarea.length < 120) {
+      this.setState({
+        errors: {
+          textarea: "Wiadomość musi mieć conajmniej 120 znaków."
+        }
+      });
+
+      console.log("sukces3");
+      // console.log(validateEmail(this.state.errors));
+      // console.log(this.state.errors);
+    } else if (
+      name.length === 0 &&
+      email.length === 0 &&
+      textarea.length === 0
+    ) {
+      console.log("nie ma wysylania pustego formularza!");
+    } else {
+      this.setState({
+        errors: {
+          name: "",
+          email: "",
+          password: ""
+        }
+      });
+      const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
+      const data = {
+        name: this.state.name,
+        email: this.state.email,
+        textarea: this.state.textarea
+      };
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+          // "X-Auth-Token": "20200108224609"
+        },
+        body: JSON.stringify(data)
       })
-      .catch(err => console.log(err));
+        .then(resp => {
+          if (resp.ok === true) {
+            console.log(resp);
+          }
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   render() {
@@ -108,9 +110,7 @@ class HomeForm extends Component {
                     placeholder="Angelika"
                     onChange={this.handleChange}
                   />
-                  {errors.name.length > 0 && (
-                    <span className="error">{errors.name}</span>
-                  )}
+                  {<span className="error">{errors.name}</span>}
                 </label>
 
                 <label className="form-input-title">
@@ -122,9 +122,7 @@ class HomeForm extends Component {
                     placeholder="abc@xyz.pl"
                     onChange={this.handleChange}
                   />
-                  {errors.email.length > 0 && (
-                    <span className="error">{errors.email}</span>
-                  )}
+                  {<span className="error">{errors.email}</span>}
                 </label>
               </div>
               <div className="form-text-box">
@@ -136,9 +134,7 @@ class HomeForm extends Component {
                     value={textarea}
                     onChange={this.handleChange}
                   />
-                  {errors.textarea.length < 120 && (
-                    <span className="error">{errors.textarea}</span>
-                  )}
+                  {<span className="error">{errors.textarea}</span>}
                 </label>
               </div>
               <button className="form-button">Wyślij</button>
