@@ -49,9 +49,9 @@ class HomeForm extends Component {
         break;
     }
 
-    this.setState({ errors, [name]: value }, () => {
-      console.log(errors);
-    });
+    // this.setState({ errors, [name]: value }, () => {
+    //   console.log(errors);
+    // });
   };
 
   handleSubmit = e => {
@@ -62,11 +62,11 @@ class HomeForm extends Component {
       console.error("Nieprawidłowy formularz");
     }
 
-    console.log("User name:" + this.state.name);
-    console.log("User email:" + this.state.email);
-    console.log("User message:" + this.state.textarea);
+    // console.log("User name:" + this.state.name);
+    // console.log("User email:" + this.state.email);
+    // console.log("User message:" + this.state.textarea);
 
-    const url = "https://fer-api.coderslab.pl/v1/portfolio/contact.";
+    const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
     const data = {
       name: this.state.name,
       email: this.state.email,
@@ -75,15 +75,18 @@ class HomeForm extends Component {
 
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" }
+      headers: {
+        "Content-Type": "application/json"
+        // "X-Auth-Token": "20200108224609"
+      },
+      body: JSON.stringify(data)
     })
       .then(resp => {
-        if (resp.ok) return resp.json();
-        else throw new Error("Błąd sieci");
+        if (resp.ok === true) {
+          console.log(resp);
+        }
       })
-      .catch(error => console.error("Error: ", error))
-      .then(response => console.log("Success: ", response));
+      .catch(err => console.log(err));
   };
 
   render() {
