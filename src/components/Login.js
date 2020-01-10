@@ -7,10 +7,8 @@ class Login extends Component {
   state = {
     email: "",
     password: "",
-    errors: {
-      emailError: "",
-      passwordError: ""
-    }
+    emailError: "",
+    passwordError: ""
   };
 
   handleChange = e => {
@@ -27,42 +25,38 @@ class Login extends Component {
       return re.test(String(email).toLowerCase());
     };
 
-    const { email, password, errors } = this.state;
+    const { email, password } = this.state;
 
     if (password.length < 6 || password.length === 0) {
       this.setState({
-        errors: {
-          passwordError: "Hasło musi mieć więcej niż 6 znaków."
-        }
+        passwordError: "Hasło musi mieć conajmniej 6 znaków."
       });
       console.log("sukces");
-    }
-    // else {
-    //   this.setState({
-    //     errors: {
-    //       passwordError: ""
-    //     }
-    //   });
-    //   console.log("sukces1.5");
-    // }
-    if (!validateEmail(email) || email.length === 0) {
+    } else {
       this.setState({
-        errors: {
-          emailError: "Email nie jest poprawny."
-        }
+        passwordError: ""
+      });
+      console.log("sukces1.5");
+    }
+
+    if (validateEmail(email) === false || email.length === 0) {
+      this.setState({
+        emailError: "Email nie jest poprawny."
       });
 
       console.log("sukces2");
+    } else {
+      this.setState({
+        emailError: ""
+      });
     }
-    if (email && password) {
+    if (validateEmail(email) === true && password.length > 6) {
       console.log("sukces4");
       this.setState({
         email: "",
         password: "",
-        errors: {
-          emailError: "",
-          passwordError: ""
-        }
+        emailError: "",
+        passwordError: ""
       });
     }
     //  else {
@@ -76,8 +70,7 @@ class Login extends Component {
   };
 
   render() {
-    const { email, password } = this.state;
-    let { passwordError, emailError } = this.state.errors;
+    const { email, password, passwordError, emailError } = this.state;
 
     return (
       <section className="login">
