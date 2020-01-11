@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import RegisterHeaderNav from "./RegisterHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
+// import fire from "./components/Firebase/Fire";
 
 class Registration extends Component {
   state = {
@@ -10,8 +11,27 @@ class Registration extends Component {
     repeatPassword: "",
     errorEmail: "",
     errorPassword: "",
-    errorRepeatPassword: ""
+    errorRepeatPassword: "",
+    user: ""
   };
+
+  // componentDidMount() {
+  //   this.authListener();
+  // }
+
+  // authListener() {
+  //   fire.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       this.setState({
+  //         user
+  //       });
+  //     } else {
+  //       this.setState({
+  //         user: null
+  //       });
+  //     }
+  //   });
+  // }
 
   handleChange = e => {
     this.setState({

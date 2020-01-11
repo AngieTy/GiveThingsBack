@@ -1,0 +1,46 @@
+.give-things-banner {
+  width: 600px;
+  margin-top: 70px;
+  align-self: center;
+  text-align: center;
+  .banner-title {
+    @include header;
+    text-align: center;
+  }
+  img {
+    width: 40%;
+    padding: 20px 0 25px 0;
+  }
+  .banner-content {
+    font-weight: 300;
+    font-size: 2.5rem;
+    padding-bottom: 50px;
+  }
+  .banner-content-container {
+    @include flex(row, stretch);
+    justify-content: space-evenly;
+    .banner-content-steps {
+      font-size: 1.3rem;
+      @include flex(column, center);
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 120px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0.75px solid $fifthColor;
+        transform: rotate(45deg);
+      }
+      .banner-content-step {
+        padding-bottom: 10px;
+        font-size: 2rem;
+      }
+    }
+  }
+}

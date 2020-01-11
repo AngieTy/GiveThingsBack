@@ -1,0 +1,13 @@
+.give-things {
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  img {
+    width: 45%;
+  }
+  .give-things-header-container {
+    @include flex(column, flex-end);
+    width: 50%;
+    height: 30vh;
+  }
+}

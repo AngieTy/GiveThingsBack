@@ -11,26 +11,25 @@ class HomeHelpPagination extends Component {
 
   handleClick = (event, i) => {
     this.setState({
-      currentPage: 1
+      currentPage: i
     });
     if (
-      this.props.areClicked.isFundationsClicked === false ||
-      this.props.areClicked.isOrganizationsClicked === false ||
-      this.props.areClicked.isLocalsClicked === false
+      this.props.areClicked.isFundationsClicked === true ||
+      this.props.areClicked.isOrganizationsClicked === true ||
+      this.props.areClicked.isLocalsClicked === true
     ) {
       this.setState({
-        currentPage: 1
+        currentPage: i
       });
     } else {
       this.setState({
-        currentPage: i
+        currentPage: 1
       });
     }
   };
 
   render() {
     const { currentPage, itemsPerPage } = this.state;
-
     const indexOfLast = currentPage * itemsPerPage;
     const indexOfFirst = indexOfLast - itemsPerPage;
     const currentNames = this.props.data.slice(indexOfFirst, indexOfLast);

@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Registration from "./components/Registration";
 import Logout from "./components/Logout";
+import GiveThingsLayout from "./components/GiveThingsLayout/GiveThingsLayout";
 import { HashRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route path="/logowanie" component={Login} />
             <Route path="/rejestracja" component={Registration} />
             <Route path="/wylogowano" component={Logout} />
+            <Route path="/oddaj-rzeczy" component={GiveThingsLayout} />
           </Switch>
         </HashRouter>
       </>
