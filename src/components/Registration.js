@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import HomeHeaderNav from "./HomeHeaderNav";
+import RegisterHeaderNav from "./RegisterHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
 
 class Registration extends Component {
@@ -91,7 +91,7 @@ class Registration extends Component {
     } = this.state;
     return (
       <section className="registration">
-        <HomeHeaderNav />
+        <RegisterHeaderNav />
         <main className="registration-container">
           <h2 className="registration-header">Zarejestruj się</h2>
           <img src={ImgDeco} alt="decoration_img" />

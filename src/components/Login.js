@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomeHeaderNav from "./HomeHeaderNav";
+import LoginHeaderNav from "./LoginHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
 import { Link } from "react-router-dom";
 
@@ -59,14 +59,6 @@ class Login extends Component {
         passwordError: ""
       });
     }
-    //  else {
-    //   this.setState({
-    //     errors: {
-    //       emailError: ""
-    //     }
-    //   });
-    //   console.log("sukces3");
-    // }
   };
 
   render() {
@@ -74,7 +66,7 @@ class Login extends Component {
 
     return (
       <section className="login">
-        <HomeHeaderNav />
+        <LoginHeaderNav />
         <main className="login-container">
           <h2 className="login-header">Zaloguj się</h2>
           <img src={ImgDeco} alt="decoration_img" />
