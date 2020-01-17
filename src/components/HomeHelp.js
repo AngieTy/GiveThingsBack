@@ -165,28 +165,14 @@ class HomeHelp extends Component {
 
     if (isFundationsClicked) {
       pagination = (
-        <HomeHelpPagination
-          data={fundations}
-          areClicked={this.state}
-          startPage={1}
-        />
+        <HomeHelpPagination data={fundations} areClicked={this.state} />
       );
     } else if (isOrganizationsClicked) {
       pagination = (
-        <HomeHelpPagination
-          data={organizations}
-          areClicked={this.state}
-          startPage={1}
-        />
+        <HomeHelpPagination data={organizations} areClicked={this.state} />
       );
     } else {
-      pagination = (
-        <HomeHelpPagination
-          data={locals}
-          areClicked={this.state}
-          startPage={1}
-        />
-      );
+      pagination = <HomeHelpPagination data={locals} areClicked={this.state} />;
     }
 
     return (

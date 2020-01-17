@@ -3,7 +3,6 @@ import ImgDeco from "../assets/assets/Decoration.svg";
 
 class HomeForm extends Component {
   state = {
-    isLogged: false,
     name: "",
     email: "",
     textarea: "",
@@ -31,7 +30,7 @@ class HomeForm extends Component {
     fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "content-type": "application/json"
         // "X-Auth-Token": "20200108224609"
       },
       body: JSON.stringify(data)
@@ -41,6 +40,7 @@ class HomeForm extends Component {
           console.log(response);
         }
       })
+      // .then(data => console.log(data))
       .catch(error => {
         console.log(error);
       });
@@ -48,10 +48,10 @@ class HomeForm extends Component {
     const {
       name,
       email,
-      textarea,
-      errorName,
-      errorEmail,
-      errorTextarea
+      textarea
+      // errorName,
+      // errorEmail,
+      // errorTextarea
     } = this.state;
 
     const validateEmail = email => {

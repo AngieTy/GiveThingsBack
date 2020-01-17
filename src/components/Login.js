@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { loginUser } from "../reduxStuff/actions/auth";
 import LoginHeaderNav from "./LoginHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
 import { Link } from "react-router-dom";
@@ -50,61 +53,88 @@ class Login extends Component {
         emailError: ""
       });
     }
-    if (validateEmail(email) === true && password.length > 6) {
+    if (validateEmail(email) === true && password.length > 5) {
       console.log("sukces4");
-      this.setState({
-        email: "",
-        password: "",
-        emailError: "",
-        passwordError: ""
-      });
+      console.log(email, password);
+      this.setState(
+        {
+          email: "",
+          password: "",
+          emailError: "",
+          passwordError: ""
+        },
+        () => {
+          this.props.login(email, password);
+        }
+      );
     }
   };
 
   render() {
     const { email, password, passwordError, emailError } = this.state;
-
-    return (
-      <section className="login">
-        <LoginHeaderNav />
-        <main className="login-container">
-          <h2 className="login-header">Zaloguj się</h2>
-          <img src={ImgDeco} alt="decoration_img" />
-          <form className="login-form" onSubmit={this.handleSubmit} noValidate>
-            <div className="login-input-box">
-              <label className="login-input-title">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
-                {<span className="error">{emailError}</span>}
-              </label>
-              <label className="login-input-title">
-                Hasło
-                <input
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={this.handleChange}
-                />
-                {<span className="error">{passwordError}</span>}
-              </label>
-            </div>
-            <div className="login-btns-box">
-              <Link to="/rejestracja">
-                <button className="btn-register">Załóż konto</button>
-              </Link>
-
-              <button className="btn-login">Zaloguj się</button>
-            </div>
-          </form>
-        </main>
-      </section>
-    );
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <section className="login">
+          <LoginHeaderNav />
+          <main className="login-container">
+            <h2 className="login-header">Zaloguj się</h2>
+            <img src={ImgDeco} alt="decoration_img" />
+            <form
+              className="login-form"
+              onSubmit={this.handleSubmit}
+              noValidate
+            >
+              <div className="login-input-box">
+                <label className="login-input-title">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={this.handleChange}
+                  />
+                  {<span className="error">{emailError}</span>}
+                </label>
+                <label className="login-input-title">
+                  Hasło
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                  />
+                  {<span className="error">{passwordError}</span>}
+                </label>
+              </div>
+              <div className="login-btns-box">
+                <Link to="/rejestracja">
+                  <button className="btn-register">Załóż konto</button>
+                </Link>
+                <button className="btn-login">Zaloguj się</button>
+              </div>
+            </form>
+          </main>
+        </section>
+      );
+    }
   }
 }
-
-export default Login;
+function mapDispatchToProps(dispatch) {
+  return {
+    login: (email, password) => {
+      dispatch(loginUser(email, password));
+    }
+  };
+}
+function mapStateToProps(state) {
+  return {
+    user: state.email,
+    isLoggingIn: state.auth.isLoggingIn,
+    loginError: state.auth.loginError,
+    isAuthenticated: state.auth.isAuthenticated
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

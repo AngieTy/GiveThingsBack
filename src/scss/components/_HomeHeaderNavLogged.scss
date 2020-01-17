@@ -1,0 +1,22 @@
+.home-logged {
+  margin-top: 37px;
+  text-align: right;
+  .home-user-logged {
+    font-weight: 400;
+  }
+  .home-give-btn,
+  .home-logout-btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-left: 4px;
+    color: $fourthColor;
+    background-color: white;
+    font-size: 0.875rem;
+    padding: 9px 10px;
+  }
+  .home-give-btn {
+    font-weight: 700;
+    border: 0.75px solid $thirdColor;
+  }
+}

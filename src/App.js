@@ -5,6 +5,7 @@ import Registration from "./components/Registration";
 import Logout from "./components/Logout";
 import GiveThingsLayout from "./components/GiveThingsLayout/GiveThingsLayout";
 import { HashRouter, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 class App extends Component {
   render() {
@@ -23,4 +24,11 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: state.auth.isAuthenticated,
+    isVerifying: state.auth.isVerifying
+  };
+}
+export default connect(mapStateToProps)(App);

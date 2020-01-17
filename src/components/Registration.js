@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import RegisterHeaderNav from "./RegisterHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
-// import fire from "./components/Firebase/Fire";
+import fire from "./Firebase/Fire";
 
 class Registration extends Component {
   state = {
@@ -12,26 +13,9 @@ class Registration extends Component {
     errorEmail: "",
     errorPassword: "",
     errorRepeatPassword: "",
-    user: ""
+    user: "",
+    isRegistered: false
   };
-
-  // componentDidMount() {
-  //   this.authListener();
-  // }
-
-  // authListener() {
-  //   fire.auth().onAuthStateChanged(user => {
-  //     if (user) {
-  //       this.setState({
-  //         user
-  //       });
-  //     } else {
-  //       this.setState({
-  //         user: null
-  //       });
-  //     }
-  //   });
-  // }
 
   handleChange = e => {
     this.setState({
@@ -87,6 +71,18 @@ class Registration extends Component {
       password.length > 5 &&
       repeatPassword === password
     ) {
+      fire
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(u => {
+          console.log(u);
+          this.setState({
+            isRegistered: true
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
       console.log("sukces4");
       this.setState({
         email: "",

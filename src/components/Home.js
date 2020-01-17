@@ -6,12 +6,15 @@ import HomeFourSteps from "./HomeFourSteps";
 import HomeHelp from "./HomeHelp";
 import HomeThreeColumns from "./HomeThreeColumns";
 import HomeFooter from "./HomeFooter";
+// import { fire } from "./Firebase/Fire";
 
 class Home extends Component {
   render() {
+    console.log(this.props);
+
     return (
       <div className="home">
-        <HomeHeader name="HomeHeader" />
+        <HomeHeader name="HomeHeader" attr={this.state} />
         <HomeThreeColumns />
         <HomeFourSteps name="HomeSteps" />
         <HomeAboutUs name="HomeAbout" />
