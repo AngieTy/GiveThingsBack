@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Route, Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import RegisterHeaderNav from "./RegisterHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
-import fire from "./Firebase/Fire";
+import { registerUser } from "../reduxStuff/actions/auth";
 
 class Registration extends Component {
   state = {
@@ -13,8 +13,7 @@ class Registration extends Component {
     errorEmail: "",
     errorPassword: "",
     errorRepeatPassword: "",
-    user: "",
-    isRegistered: false
+    user: ""
   };
 
   handleChange = e => {
@@ -30,14 +29,7 @@ class Registration extends Component {
       return re.test(String(email).toLowerCase());
     };
 
-    const {
-      email,
-      password,
-      repeatPassword,
-      errorEmail,
-      errorPassword,
-      errorRepeatPassword
-    } = this.state;
+    const { email, password, repeatPassword } = this.state;
 
     if (password.length < 6) {
       this.setState({
@@ -71,28 +63,20 @@ class Registration extends Component {
       password.length > 5 &&
       repeatPassword === password
     ) {
-      fire
-        .auth()
-        .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(u => {
-          console.log(u);
-          this.setState({
-            isRegistered: true
-          });
-        })
-        .catch(error => {
-          console.log(error);
-        });
       console.log("sukces4");
-      this.setState({
-        email: "",
-        password: "",
-        repeatPassword: "",
-        errorEmail: "",
-        errorPassword: "",
-        errorRepeatPassword: ""
-      });
-      return true;
+      this.setState(
+        {
+          email: "",
+          password: "",
+          repeatPassword: "",
+          errorEmail: "",
+          errorPassword: "",
+          errorRepeatPassword: ""
+        },
+        () => {
+          this.props.register(email, password);
+        }
+      );
     }
   };
 
@@ -105,60 +89,77 @@ class Registration extends Component {
       errorPassword,
       errorRepeatPassword
     } = this.state;
-    return (
-      <section className="registration">
-        <RegisterHeaderNav />
-        <main className="registration-container">
-          <h2 className="registration-header">Zarejestruj się</h2>
-          <img src={ImgDeco} alt="decoration_img" />
-          <form
-            className="registration-form"
-            onSubmit={this.handleSubmit}
-            noValidate
-          >
-            <div className="registration-input-box">
-              <label className="registration-input-title">
-                Email
-                <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={this.handleChange}
-                />
-                {<span className="error">{errorEmail}</span>}
-              </label>
-              <label className="registration-input-title">
-                Hasło
-                <input
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={this.handleChange}
-                />
-                {<span className="error">{errorPassword}</span>}
-              </label>
-              <label className="registration-input-title">
-                Powtórz hasło
-                <input
-                  type="password"
-                  name="repeatPassword"
-                  value={repeatPassword}
-                  onChange={this.handleChange}
-                />
-                {<span className="error">{errorRepeatPassword}</span>}
-              </label>
-            </div>
-            <div className="registration-btns-box">
-              <button className="btn-register">Załóż konto</button>
-              <Link to="/logowanie">
-                <button className="btn-login">Zaloguj się</button>
-              </Link>
-            </div>
-          </form>
-        </main>
-      </section>
-    );
+    const { isAuthenticated } = this.props;
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <section className="registration">
+          <RegisterHeaderNav />
+          <main className="registration-container">
+            <h2 className="registration-header">Zarejestruj się</h2>
+            <img src={ImgDeco} alt="decoration_img" />
+            <form
+              className="registration-form"
+              onSubmit={this.handleSubmit}
+              noValidate
+            >
+              <div className="registration-input-box">
+                <label className="registration-input-title">
+                  Email
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={this.handleChange}
+                  />
+                  {<span className="error">{errorEmail}</span>}
+                </label>
+                <label className="registration-input-title">
+                  Hasło
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleChange}
+                  />
+                  {<span className="error">{errorPassword}</span>}
+                </label>
+                <label className="registration-input-title">
+                  Powtórz hasło
+                  <input
+                    type="password"
+                    name="repeatPassword"
+                    value={repeatPassword}
+                    onChange={this.handleChange}
+                  />
+                  {<span className="error">{errorRepeatPassword}</span>}
+                </label>
+              </div>
+              <div className="registration-btns-box">
+                <button className="btn-register">Załóż konto</button>
+                <Link to="/logowanie">
+                  <button className="btn-login">Zaloguj się</button>
+                </Link>
+              </div>
+            </form>
+          </main>
+        </section>
+      );
+    }
   }
 }
+function mapDispatchToProps(dispatch) {
+  return {
+    register: (email, password) => {
+      dispatch(registerUser(email, password));
+    }
+  };
+}
 
-export default Registration;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: state.auth.isAuthenticated
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Registration);

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { loginUser } from "../reduxStuff/actions/auth";
 import LoginHeaderNav from "./LoginHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -131,7 +131,6 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state) {
   return {
-    user: state.email,
     isLoggingIn: state.auth.isLoggingIn,
     loginError: state.auth.loginError,
     isAuthenticated: state.auth.isAuthenticated

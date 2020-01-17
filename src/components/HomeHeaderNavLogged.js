@@ -13,7 +13,7 @@ class HomeHeaderNavLogged extends Component {
     return (
       <div className="home-nav-box">
         <div className="home-logged">
-          <span className="home-user-logged">{this.props.email}</span>
+          <span className="home-user-logged">{this.props.user}</span>
           <Link to="/oddaj-rzeczy">
             <button className="home-give-btn"> Oddaj rzeczy </button>
           </Link>
@@ -92,7 +92,9 @@ class HomeHeaderNavLogged extends Component {
   }
 }
 function mapStateToProps(state) {
+  console.log(state.auth.user);
   return {
+    user: state.auth.user.user.email,
     isAuthenticated: state.auth.isAuthenticated
   };
 }

@@ -11,6 +11,14 @@ export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
 
+export const REGISTER = "REGISTERED";
+
+const register = user => {
+  return {
+    type: REGISTER,
+    user
+  };
+};
 const requestLogin = () => {
   return {
     type: LOGIN_REQUEST
@@ -58,6 +66,18 @@ const verifySuccess = () => {
   return {
     type: VERIFY_SUCCESS
   };
+};
+
+export const registerUser = (email, password) => dispatch => {
+  fire
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then(user => {
+      dispatch(register(user));
+    })
+    .catch(error => {
+      console.log(error);
+    });
 };
 
 export const loginUser = (email, password) => dispatch => {

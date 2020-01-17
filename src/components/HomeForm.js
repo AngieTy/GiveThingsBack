@@ -8,7 +8,8 @@ class HomeForm extends Component {
     textarea: "",
     errorName: "",
     errorEmail: "",
-    errorTextarea: ""
+    errorTextarea: "",
+    succes: false
   };
 
   handleChange = e => {
@@ -24,7 +25,7 @@ class HomeForm extends Component {
     const data = {
       name: this.state.name,
       email: this.state.email,
-      textarea: this.state.textarea
+      message: this.state.textarea
     };
 
     fetch(url, {
@@ -37,10 +38,11 @@ class HomeForm extends Component {
     })
       .then(response => {
         if (response.ok === true) {
-          console.log(response);
+          this.setState({
+            succes: true
+          });
         }
       })
-      // .then(data => console.log(data))
       .catch(error => {
         console.log(error);
       });
