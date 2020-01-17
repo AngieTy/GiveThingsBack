@@ -1,0 +1,15 @@
+.give-things-warning {
+  height: 20vh;
+  background-color: $thirdColor;
+  @include flex(row, center);
+  .give-things-warning-container {
+    margin-left: 10%;
+    .give-things-warning-header {
+      @include header;
+      font-weight: 600;
+      .give-things-warning-content {
+        font-size: 1.375rem;
+      }
+    }
+  }
+}
