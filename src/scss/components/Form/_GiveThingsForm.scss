@@ -1,0 +1,8 @@
+.form {
+  padding-left: 10%;
+  background-image: url("../../../assets/assets/Background-Form.jpg");
+  background-size: cover;
+  height: 90vh;
+  @include flex(column, stretch);
+  justify-content: center;
+}

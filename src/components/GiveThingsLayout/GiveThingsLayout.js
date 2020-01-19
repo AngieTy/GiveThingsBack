@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import HomeHeaderNavLogged from "../HomeHeaderNavLogged";
 import GiveThingsBanner from "./GiveThingsBanner";
-import GiveThingsWarning from "./GiveThingsWarning";
+import GiveThingsForm from "./Form/GiveThingsForm";
+import HomeForm from "../HomeForm";
+import HomeFooter from "../HomeFooter";
 import ImgForm from "../../assets/assets/Form-Hero-Image.jpg";
 
 class GiveThingsLayout extends Component {
@@ -15,7 +17,9 @@ class GiveThingsLayout extends Component {
             <GiveThingsBanner />
           </div>
         </section>
-        <GiveThingsWarning />
+        <GiveThingsForm />
+        <HomeForm />
+        <HomeFooter />
       </div>
     );
   }
