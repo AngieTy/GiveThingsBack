@@ -19,13 +19,21 @@
     }
     .form-dropdown {
       outline: none;
+      appearance: none;
       background-color: transparent;
+      background-image: url("../../../assets/assets/Icon-Arrow-Down.svg");
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size: 18%;
+      padding-left: 10px;
       font-family: $font-base;
       font-size: 1.2rem;
       font-weight: 300;
       width: 200px;
       height: 30px;
       option {
+        line-height: 200%;
+        width: 50%;
         font-weight: 300;
         background-color: #ececea;
       }

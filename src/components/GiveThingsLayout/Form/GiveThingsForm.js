@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GiveThingsWarning from "../GiveThingsWarning";
 import FormStepOne from "./FormStepOne";
 import FormStepTwo from "./FormStepTwo";
+import FormStepThree from "./FormStepThree";
 
 class GiveThingsForm extends Component {
   render() {
@@ -9,7 +10,7 @@ class GiveThingsForm extends Component {
       <section className="give-things-form">
         <GiveThingsWarning />
         <form className="form">
-          <FormStepTwo />
+          <FormStepThree />
         </form>
       </section>
     );

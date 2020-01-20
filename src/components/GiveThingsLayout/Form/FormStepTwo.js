@@ -11,7 +11,7 @@ class FormStepTwo extends Component {
         <div className="form-dropdown-box">
           <span className="form-dropdown-title">Liczba 60l worków:</span>
           <select className="form-dropdown" name="number">
-            <option>- wyberz -</option>
+            <option> - wybierz -</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>

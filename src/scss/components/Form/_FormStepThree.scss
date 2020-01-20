@@ -1,0 +1,118 @@
+.form-step-three {
+  height: 100%;
+  width: 50%;
+  @include flex(column, flex-start);
+  justify-content: flex-start;
+  .form-step-number {
+    margin: 30px 0 40px 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  .form-header-localization {
+    @include header;
+    padding-bottom: 10px;
+  }
+  .form-dropdown {
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: url("../../../assets/assets/Icon-Arrow-Down.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 18%;
+    padding-left: 10px;
+    font-family: $font-base;
+    font-size: 1.2rem;
+    font-weight: 300;
+    border: 0.75px solid $fifthColor;
+    width: 220px;
+    height: 30px;
+    option {
+      line-height: 200%;
+      width: 50%;
+      font-weight: 300;
+      background-color: #ececea;
+    }
+  }
+  .form-header-help {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 40px 0 20px 0;
+  }
+  .form-checkbox-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    @include flex(row, stretch);
+    flex-wrap: wrap;
+    .checkbox-list-element {
+      width: auto;
+      padding: 10px 25px;
+      margin: 0 20px 20px 0;
+      position: relative;
+      font-weight: 300;
+      font-size: 1.2rem;
+      border: 0.75px solid $fifthColor;
+      label {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        input {
+          cursor: pointer;
+          margin: 0;
+          width: 100%;
+          //   height: 100%;
+          outline: none;
+          appearance: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          // z-index: 2;
+          &:checked {
+            background-color: $thirdColor;
+          }
+        }
+      }
+      p {
+        cursor: pointer;
+        position: relative;
+        z-index: 3;
+      }
+    }
+  }
+  .form-header-optional {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 20px 0;
+  }
+  .form-optional-input {
+    background-color: #ececea;
+    height: 30px;
+    width: 60%;
+    outline: none;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    border: 0.75px solid $fifthColor;
+  }
+  .form-btns {
+    margin-top: auto;
+    margin-bottom: 40px;
+    button {
+      cursor: pointer;
+      outline: none;
+      padding: 15px 45px;
+      border: 0.75px solid $fifthColor;
+      background-color: #ececea;
+      font-size: 1.2rem;
+      font-family: $font-base;
+      font-weight: 300;
+      &:first-child {
+        margin-right: 28px;
+      }
+    }
+  }
+}
