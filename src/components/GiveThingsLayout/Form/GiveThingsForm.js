@@ -5,6 +5,7 @@ import FormStepTwo from "./FormStepTwo";
 import FormStepThree from "./FormStepThree";
 import FormStepFour from "./FormStepFour";
 import FormSummary from "./FormSummary";
+import ThanksFormView from "./ThanksFormView";
 
 class GiveThingsForm extends Component {
   render() {
@@ -12,7 +13,7 @@ class GiveThingsForm extends Component {
       <section className="give-things-form">
         <GiveThingsWarning />
         <form className="form">
-          <FormSummary />
+          <ThanksFormView />
         </form>
       </section>
     );

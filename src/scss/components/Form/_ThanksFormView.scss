@@ -1,0 +1,12 @@
+.view {
+  width: 43%;
+  @include flex(column, center);
+  justify-content: center;
+  text-align: center;
+  .view-header {
+    font-weight: 300;
+    font-size: 2.1rem;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+}
