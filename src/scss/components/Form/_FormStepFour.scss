@@ -1,0 +1,85 @@
+.form-step-four {
+  height: 100%;
+  width: 55%;
+  @include flex(column, stretch);
+  .form-number {
+    @include formNumber;
+  }
+  .form-header {
+    @include header;
+    padding-bottom: 30px;
+  }
+  .form-pickup-container {
+    height: 40%;
+    @include flex(row, stretch);
+    justify-content: space-between;
+    .form-input.last-input {
+      .input-title {
+        margin-top: 10px;
+        align-self: flex-start;
+      }
+    }
+    .form-pickup-address,
+    .form-pickup-date {
+      width: 45%;
+      .form-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+      .form-address-box {
+        @include flex(column, flex-start);
+        justify-content: space-between;
+
+        .form-input {
+          margin-bottom: 20px;
+          width: 100%;
+          @include flex(row, center);
+          justify-content: space-between;
+          font-weight: 300;
+          font-size: 1.2rem;
+
+          [type="text"],
+          textarea {
+            outline: none;
+            padding-left: 6px;
+            width: 67%;
+            background-color: #ececea;
+            border: 0.75px solid $fifthColor;
+            font-size: 1.1rem;
+            font-weight: 300;
+            font-family: $font-base;
+          }
+          [type="text"] {
+            height: 35px;
+          }
+          textarea {
+            resize: none;
+            height: 100px;
+          }
+          .input-title {
+            width: 28%;
+          }
+        }
+      }
+    }
+  }
+  .form-btns {
+    margin-top: auto;
+    margin-bottom: 40px;
+    button {
+      cursor: pointer;
+      outline: none;
+      width: 150px;
+      padding: 15px 45px;
+      border: 0.75px solid $fifthColor;
+      background-color: #ececea;
+      font-size: 1.2rem;
+      font-family: $font-base;
+      font-weight: 300;
+      &:first-child {
+        margin-right: 28px;
+      }
+    }
+  }
+}

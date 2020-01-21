@@ -3,6 +3,8 @@ import GiveThingsWarning from "../GiveThingsWarning";
 import FormStepOne from "./FormStepOne";
 import FormStepTwo from "./FormStepTwo";
 import FormStepThree from "./FormStepThree";
+import FormStepFour from "./FormStepFour";
+import FormSummary from "./FormSummary";
 
 class GiveThingsForm extends Component {
   render() {
@@ -10,7 +12,7 @@ class GiveThingsForm extends Component {
       <section className="give-things-form">
         <GiveThingsWarning />
         <form className="form">
-          <FormStepThree />
+          <FormSummary />
         </form>
       </section>
     );

@@ -4,9 +4,7 @@
   @include flex(column, flex-start);
   justify-content: flex-start;
   .form-step-number {
-    margin: 30px 0 40px 0;
-    font-size: 1.2rem;
-    font-weight: 300;
+    @include formNumber;
   }
   .form-header-localization {
     @include header;
@@ -63,7 +61,6 @@
           cursor: pointer;
           margin: 0;
           width: 100%;
-          //   height: 100%;
           outline: none;
           appearance: none;
           position: absolute;
@@ -71,7 +68,6 @@
           left: 0;
           right: 0;
           bottom: 0;
-          // z-index: 2;
           &:checked {
             background-color: $thirdColor;
           }
@@ -104,6 +100,7 @@
     button {
       cursor: pointer;
       outline: none;
+      width: 150px;
       padding: 15px 45px;
       border: 0.75px solid $fifthColor;
       background-color: #ececea;
