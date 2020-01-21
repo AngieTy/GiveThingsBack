@@ -1,0 +1,79 @@
+.form-summary {
+  height: 100%;
+  width: 55%;
+  @include flex(column, stretch);
+  .form-summary-header {
+    margin-top: 30px;
+    @include header;
+    padding-bottom: 30px;
+  }
+  .form-summary-banner {
+    margin-bottom: 30px;
+    .form-summary-banner-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 17px;
+    }
+    .form-summary-box {
+      @include flex(row, center);
+      img {
+        width: 7%;
+        margin-right: 15px;
+      }
+      .form-summary-clothes {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .form-summary-container {
+    height: 40%;
+    @include flex(row, stretch);
+    justify-content: space-between;
+    .form-data.last-input {
+      .data-title {
+        align-self: flex-start;
+      }
+    }
+    .form-summary-address,
+    .form-summary-date {
+      width: 45%;
+      .form-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+      .form-address-box {
+        @include flex(column, flex-start);
+        justify-content: space-between;
+        .form-data {
+          margin-bottom: 20px;
+          width: 100%;
+          @include flex(row, center);
+          font-weight: 300;
+          font-size: 1.2rem;
+          .data-title {
+            width: 28%;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+  .form-btns {
+    margin-top: auto;
+    margin-bottom: 40px;
+    button {
+      cursor: pointer;
+      outline: none;
+      padding: 15px 40px;
+      border: 0.75px solid $fifthColor;
+      background-color: #ececea;
+      font-size: 1.2rem;
+      font-family: $font-base;
+      font-weight: 300;
+      &:first-child {
+        margin-right: 28px;
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import clothes from "../../../assets/assets/Icon-1.svg";
-import arrows from "../../../assets/assets/Icon-2.svg";
+import arrows from "../../../assets/assets/Icon-4.svg";
 
 class FormSummary extends Component {
   render() {
@@ -22,45 +22,49 @@ class FormSummary extends Component {
             </span>
           </div>
         </div>
-        <div className="form-pickup-container">
-          <div className="form-pickup-address">
+        <div className="form-summary-container">
+          <div className="form-summary-address">
             <h3 className="form-title">Adres odbioru:</h3>
             <div className="form-address-box">
-              <label className="form-input">
-                <span className="input-title">Ulica</span>
-                <input type="text" />
-              </label>
-              <label className="form-input">
-                <span className="input-title">Miasto</span>
-                <input type="text" />
-              </label>
-              <label className="form-input">
-                <span className="input-title">Kod pocztowy</span>
-                <input type="text" pattern="[0-9]{2}\-[0-9]{3}" />
-              </label>
-              <label className="form-input">
-                <span className="input-title">Numer telefonu</span>
-                <input type="text" />
-              </label>
+              <div className="form-data">
+                <span className="data-title">Ulica</span>
+                <span className="data-value">Kowalska</span>
+              </div>
+              <div className="form-data">
+                <span className="data-title">Miasto</span>
+                <span className="data-value">Poznań</span>
+              </div>
+              <div className="form-data">
+                <span className="data-title">Kod pocztowy</span>
+                <span className="data-value">66-666</span>
+              </div>
+              <div className="form-data">
+                <span className="data-title">Numer telefonu</span>
+                <span className="data-value">111111111</span>
+              </div>
             </div>
           </div>
-          <div className="form-pickup-date">
+          <div className="form-summary-date">
             <h3 className="form-title">Termin odbioru:</h3>
             <div className="form-address-box">
-              <label className="form-input">
-                <span className="input-title">Data</span>
-                <input type="text" />
-              </label>
-              <label className="form-input">
-                <span className="input-title">Godzina</span>
-                <input type="text" />
-              </label>
-              <label className="form-input last-input">
-                <span className="input-title">Uwagi dla kuriera</span>
-                <textarea></textarea>
-              </label>
+              <div className="form-data">
+                <span className="data-title">Data</span>
+                <span className="data-value">12.12.2019</span>
+              </div>
+              <div className="form-data">
+                <span className="data-title">Godzina</span>
+                <span className="data-value">12:12</span>
+              </div>
+              <div className="form-data last-input">
+                <span className="data-title">Uwagi dla kuriera</span>
+                <span className="data-value">blablabla</span>
+              </div>
             </div>
           </div>
+        </div>
+        <div className="form-btns">
+          <button className="form-prev-btn">Wstecz</button>
+          <button className="form-next-btn">Potwierdzam</button>
         </div>
       </div>
     );

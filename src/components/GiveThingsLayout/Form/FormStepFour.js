@@ -49,8 +49,8 @@ class FormStepFour extends Component {
           </div>
         </div>
         <div className="form-btns">
-          <button className="form-prev-btn">wstecz</button>
-          <button className="form-next-btn">dalej</button>
+          <button className="form-prev-btn">Wstecz</button>
+          <button className="form-next-btn">Dalej</button>
         </div>
       </div>
     );
