@@ -43,6 +43,18 @@ class FormStepFour extends Component {
     this.props.value5(value);
   };
 
+  //czas
+  handleTimeValue = e => {
+    let value = e.target.value;
+    this.props.value6(value);
+  };
+
+  //uwagi dla kuriera
+  handleNoteValue = e => {
+    let value = e.target.value;
+    this.props.value7(value);
+  };
+
   render() {
     return (
       <div className="form-step-four">
@@ -85,11 +97,11 @@ class FormStepFour extends Component {
               </label>
               <label className="form-input">
                 <span className="input-title">Godzina</span>
-                <input type="time" />
+                <input type="time" onChange={this.handleTimeValue} />
               </label>
               <label className="form-input last-input">
                 <span className="input-title">Uwagi dla kuriera</span>
-                <textarea></textarea>
+                <textarea onChange={this.handleNoteValue}></textarea>
               </label>
             </div>
           </div>

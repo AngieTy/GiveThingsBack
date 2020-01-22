@@ -3,6 +3,20 @@ import clothes from "../../../assets/assets/Icon-1.svg";
 import arrows from "../../../assets/assets/Icon-4.svg";
 
 class FormSummary extends Component {
+  //powrot do etapu 4
+
+  handlePrevStep = e => {
+    e.preventDefault();
+    this.props.prev();
+  };
+
+  //przejscie to ostatniego etapu i wyslanie formularza
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.next();
+    console.log(this.props.data);
+  };
   render() {
     return (
       <div className="form-summary">
@@ -63,8 +77,12 @@ class FormSummary extends Component {
           </div>
         </div>
         <div className="form-btns">
-          <button className="form-prev-btn">Wstecz</button>
-          <button className="form-next-btn">Potwierdzam</button>
+          <button className="form-prev-btn" onClick={this.handlePrevStep}>
+            Wstecz
+          </button>
+          <button className="form-next-btn" onClick={this.handleSubmit}>
+            Potwierdzam
+          </button>
         </div>
       </div>
     );

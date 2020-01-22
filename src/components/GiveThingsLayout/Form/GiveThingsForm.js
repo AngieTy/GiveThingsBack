@@ -86,6 +86,24 @@ class GiveThingsForm extends Component {
     });
   };
 
+  //ppowrot z 5 etapu do 4
+
+  handlePrevFourthStep = () => {
+    this.setState({
+      isSummarySeen: false,
+      isFourthStepSeen: true
+    });
+  };
+
+  //przejscie do ostatniego etapu
+
+  handleFinalStep = () => {
+    this.setState({
+      isThanksSeen: true,
+      isSummarySeen: false
+    });
+  };
+
   //FUNKCJE POBIERANIA WARTOSCI Z DZIECI
 
   // pobranie wartosci z 1 etapu
@@ -170,6 +188,13 @@ class GiveThingsForm extends Component {
       time: time
     });
   };
+
+  //pobranie uwag dla kuriera
+  handleDownloadValueFromFourthStep7 = note => {
+    this.setState({
+      note: note
+    });
+  };
   render() {
     const {
       isFirstStepSeen,
@@ -233,6 +258,7 @@ class GiveThingsForm extends Component {
               value4={this.handleDownloadValueFromFourthStep4}
               value5={this.handleDownloadValueFromFourthStep5}
               value6={this.handleDownloadValueFromFourthStep6}
+              value7={this.handleDownloadValueFromFourthStep7}
             />
           </form>
         </section>
@@ -243,8 +269,9 @@ class GiveThingsForm extends Component {
           <GiveThingsWarning />
           <form className="form">
             <FormSummary
-            // step={this.handleOneStep}
-            // change={this.handlePrevView}
+              prev={this.handlePrevFourthStep}
+              next={this.handleFinalStep}
+              data={this.state}
             />
           </form>
         </section>
@@ -253,10 +280,7 @@ class GiveThingsForm extends Component {
       return (
         <section className="give-things-form">
           <form className="form">
-            <ThanksFormView
-            // step={this.handleOneStep}
-            // change={this.handlePrevView}
-            />
+            <ThanksFormView />
           </form>
         </section>
       );

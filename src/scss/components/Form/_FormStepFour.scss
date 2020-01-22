@@ -41,6 +41,7 @@
 
           [type="text"],
           [type="date"],
+          [type="time"],
           textarea {
             outline: none;
             padding-left: 6px;
@@ -51,7 +52,8 @@
             font-weight: 300;
             font-family: $font-base;
           }
-          [type="text"] {
+          [type="text"],
+          [type="time"] {
             height: 35px;
           }
           [type="date"] {
