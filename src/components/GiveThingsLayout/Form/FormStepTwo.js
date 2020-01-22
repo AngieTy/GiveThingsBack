@@ -1,6 +1,26 @@
 import React, { Component } from "react";
 
 class FormStepTwo extends Component {
+  //przycisk powrotu do 1 kroku
+  handlePrevStep = e => {
+    e.preventDefault();
+    this.props.prev();
+  };
+  //przycisk do kroku 3
+  handleNextStep = e => {
+    e.preventDefault();
+    this.props.next();
+  };
+
+  //pobranie wartosci z 2 etapu
+  handleCheck = e => {
+    e.preventDefault();
+    if (typeof this.props.value === "function") {
+      let value = e.target.value;
+      this.props.value(value);
+    }
+  };
+
   render() {
     return (
       <div className="form-step-two">
@@ -10,7 +30,11 @@ class FormStepTwo extends Component {
         </h2>
         <div className="form-dropdown-box">
           <span className="form-dropdown-title">Liczba 60l worków:</span>
-          <select className="form-dropdown" name="number">
+          <select
+            className="form-dropdown"
+            name="number"
+            onChange={this.handleCheck}
+          >
             <option> - wybierz -</option>
             <option>1</option>
             <option>2</option>
@@ -18,6 +42,14 @@ class FormStepTwo extends Component {
             <option>4</option>
             <option>5</option>
           </select>
+        </div>
+        <div className="form-btns">
+          <button className="form-prev-btn" onClick={this.handlePrevStep}>
+            wstecz
+          </button>
+          <button className="form-next-btn" onClick={this.handleNextStep}>
+            dalej
+          </button>
         </div>
       </div>
     );

@@ -4,7 +4,6 @@ import { Redirect, Link } from "react-router-dom";
 import { loginUser } from "../reduxStuff/actions/auth";
 import LoginHeaderNav from "./LoginHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
-// import { Link } from "react-router-dom";
 
 class Login extends Component {
   state = {

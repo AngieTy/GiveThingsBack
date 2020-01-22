@@ -31,4 +31,22 @@
       }
     }
   }
+  .form-btns {
+    margin-top: auto;
+    margin-bottom: 40px;
+    button {
+      cursor: pointer;
+      outline: none;
+      width: 150px;
+      padding: 15px 45px;
+      border: 0.75px solid $fifthColor;
+      background-color: #ececea;
+      font-size: 1.2rem;
+      font-family: $font-base;
+      font-weight: 300;
+      &:first-child {
+        margin-right: 28px;
+      }
+    }
+  }
 }
