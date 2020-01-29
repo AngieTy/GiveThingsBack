@@ -5,7 +5,6 @@ import SecondIcon from "../assets/assets/Icon-2.svg";
 import ThirdIcon from "../assets/assets/Icon-3.svg";
 import FourthIcon from "../assets/assets/Icon-4.svg";
 import { Link } from "react-router-dom";
-// import { Link as ScrollLink } from "react-scroll";
 
 class HomeFourSteps extends Component {
   render() {

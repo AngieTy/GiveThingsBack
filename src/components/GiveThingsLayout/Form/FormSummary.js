@@ -3,6 +3,9 @@ import clothes from "../../../assets/assets/Icon-1.svg";
 import arrows from "../../../assets/assets/Icon-4.svg";
 
 class FormSummary extends Component {
+  state = {
+    helpGroups: this.props.data.helpGroups
+  };
   //powrot do etapu 4
 
   handlePrevStep = e => {
@@ -15,7 +18,6 @@ class FormSummary extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.next();
-    console.log(this.props.data);
   };
   render() {
     return (
@@ -26,13 +28,14 @@ class FormSummary extends Component {
           <div className="form-summary-box">
             <img src={clothes} alt="tshirt-img" />
             <span className="form-summary-clothes">
-              4 worki, ubrania w dobrym stanie, dzieciom
+              {this.props.data.bags}, {this.props.data.type},
+              {this.state.helpGroups}
             </span>
           </div>
           <div className="form-summary-box">
             <img src={arrows} alt="recycle-img" />
             <span className="form-summary-clothes">
-              do lokalizacji: Warszawa
+              do lokalizacji: {this.props.data.localization}}
             </span>
           </div>
         </div>
@@ -42,19 +45,19 @@ class FormSummary extends Component {
             <div className="form-address-box">
               <div className="form-data">
                 <span className="data-title">Ulica</span>
-                <span className="data-value">Kowalska</span>
+                <span className="data-value">{this.props.data.street}</span>
               </div>
               <div className="form-data">
                 <span className="data-title">Miasto</span>
-                <span className="data-value">Poznań</span>
+                <span className="data-value">{this.props.data.city}</span>
               </div>
               <div className="form-data">
                 <span className="data-title">Kod pocztowy</span>
-                <span className="data-value">66-666</span>
+                <span className="data-value">{this.props.data.postCode}</span>
               </div>
               <div className="form-data">
                 <span className="data-title">Numer telefonu</span>
-                <span className="data-value">111111111</span>
+                <span className="data-value">{this.props.data.phone}</span>
               </div>
             </div>
           </div>
@@ -63,15 +66,15 @@ class FormSummary extends Component {
             <div className="form-address-box">
               <div className="form-data">
                 <span className="data-title">Data</span>
-                <span className="data-value">12.12.2019</span>
+                <span className="data-value">{this.props.data.date}</span>
               </div>
               <div className="form-data">
                 <span className="data-title">Godzina</span>
-                <span className="data-value">12:12</span>
+                <span className="data-value">{this.props.data.time}</span>
               </div>
               <div className="form-data last-input">
                 <span className="data-title">Uwagi dla kuriera</span>
-                <span className="data-value">blablabla</span>
+                <span className="data-value">{this.props.data.note}</span>
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import BtnsImg from "../assets/assets/Decoration.svg";
 import { Link } from "react-router-dom";
 
-class HomeHeaderBtns extends Component {
+class HomeHeaderBtnsLogged extends Component {
   render() {
     return (
       <div className="home-header-btns">
@@ -12,10 +12,10 @@ class HomeHeaderBtns extends Component {
         </h2>
         <img src={BtnsImg} alt="image_decoration" />
         <div className="header-btns-box">
-          <Link to="/logowanie">
+          <Link to="/oddaj-rzeczy">
             <button className="give-things-btn">Oddaj rzeczy</button>
           </Link>
-          <Link to="/logowanie">
+          <Link to="/oddaj-rzeczy">
             <button className="organize-collection-btn">
               Zorganizuj zbiórkę
             </button>
@@ -26,4 +26,4 @@ class HomeHeaderBtns extends Component {
   }
 }
 
-export default HomeHeaderBtns;
+export default HomeHeaderBtnsLogged;

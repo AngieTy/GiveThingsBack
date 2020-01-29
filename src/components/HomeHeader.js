@@ -3,6 +3,7 @@ import HomeHeaderNav from "./HomeHeaderNav";
 import HomeHeaderBtns from "./HomeHeaderBtns";
 import { connect } from "react-redux";
 import HomeHeaderNavLogged from "./HomeHeaderNavLogged";
+import HomeHeaderBtnsLogged from "./HomeHeaderBtnsLogged";
 
 class HomeHeader extends Component {
   render() {
@@ -11,12 +12,16 @@ class HomeHeader extends Component {
         <div className="home-header-img"></div>
         <div className="home-header-container">
           {this.props.isAuthenticated ? (
-            <HomeHeaderNavLogged />
+            <>
+              <HomeHeaderNavLogged />
+              <HomeHeaderBtnsLogged />
+            </>
           ) : (
-            <HomeHeaderNav />
+            <>
+              <HomeHeaderNav />
+              <HomeHeaderBtns />
+            </>
           )}
-
-          <HomeHeaderBtns />
         </div>
       </section>
     );

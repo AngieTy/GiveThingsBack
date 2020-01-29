@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 
 class FormStepThree extends Component {
-  state = {
-    isChecked1: false,
-    isChecked2: false,
-    isChecked3: false,
-    isChecked4: false,
-    isChecked5: false
-  };
-
   //powrót do 3 etapu
   handlePrevStep = e => {
     e.preventDefault();
@@ -32,7 +24,10 @@ class FormStepThree extends Component {
   handleCheckGroups = e => {
     if (e.target.checked) {
       let text = e.target.nextElementSibling.innerText;
-      this.props.value2(text);
+      this.props.value2(e, text);
+    } else {
+      let text = "unchecked";
+      this.props.value2(e, text);
     }
   };
   //pobranie wartosci miejsca oddania rzeczy

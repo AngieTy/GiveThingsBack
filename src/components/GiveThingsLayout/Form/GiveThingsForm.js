@@ -10,6 +10,7 @@ import ThanksFormView from "./ThanksFormView";
 class GiveThingsForm extends Component {
   state = {
     bags: "",
+    city: "",
     type: "",
     localization: "",
     helpGroups: [],
@@ -128,10 +129,17 @@ class GiveThingsForm extends Component {
   };
   //pobranie grup osob z 3 etapu
 
-  handleDownloadValueFromThirdStep2 = groups => {
+  handleDownloadValueFromThirdStep2 = (e, groups) => {
     if (groups !== "unchecked") {
       this.setState({
         helpGroups: [...this.state.helpGroups, groups]
+      });
+    } else {
+      let helpGroups = [...this.state.helpGroups];
+      let index = helpGroups.indexOf(e.target.nextElementSibling.innerText);
+      helpGroups.splice(index, 1);
+      this.setState({
+        helpGroups: helpGroups
       });
     }
   };

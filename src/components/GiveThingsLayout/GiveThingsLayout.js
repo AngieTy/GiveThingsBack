@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomeHeaderNavLogged from "../HomeHeaderNavLogged";
+import GiveThingsHeaderNav from "./GiveThingsHeaderNav";
 import GiveThingsBanner from "./GiveThingsBanner";
 import GiveThingsForm from "./Form/GiveThingsForm";
 import HomeForm from "../HomeForm";
@@ -13,7 +13,7 @@ class GiveThingsLayout extends Component {
         <section className="give-things-header">
           <img src={ImgForm} alt="form_image" />
           <div className="give-things-header-container">
-            <HomeHeaderNavLogged />
+            <GiveThingsHeaderNav />
             <GiveThingsBanner />
           </div>
         </section>
