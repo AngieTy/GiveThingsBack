@@ -3,7 +3,9 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import RegisterHeaderNav from "./RegisterHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
-import { registerUser } from "../reduxStuff/actions/auth";
+import { registerUser, keepUserId } from "../reduxStuff/actions/auth";
+import "firebase/firestore";
+import firebase from "firebase/app";
 
 class Registration extends Component {
   state = {
@@ -13,13 +15,27 @@ class Registration extends Component {
     errorEmail: "",
     errorPassword: "",
     errorRepeatPassword: "",
-    user: ""
+    user: "",
+    id: ""
   };
 
   handleChange = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
+  };
+
+  //wyciągnięcie id uzytkownika
+  handleDownloadUserId = userId => {
+    console.log(userId);
+    this.setState(
+      {
+        id: userId
+      },
+      () => {
+        this.props.userId(userId);
+      }
+    );
   };
 
   handleSubmit = e => {
@@ -29,7 +45,7 @@ class Registration extends Component {
       return re.test(String(email).toLowerCase());
     };
 
-    const { email, password, repeatPassword } = this.state;
+    const { email, password, repeatPassword, id } = this.state;
 
     if (password.length < 6) {
       this.setState({
@@ -77,6 +93,19 @@ class Registration extends Component {
           this.props.register(email, password);
         }
       );
+      //wysyłka do FireStore
+      const db = firebase.firestore();
+      db.settings({
+        timestampsInSnapshots: true
+      });
+      const userRef = db.collection("users").add({
+        email: this.state.email,
+        password: this.state.password
+      });
+      //pobranie id uzytownika
+      userRef.then(response => {
+        this.handleDownloadUserId(response.id);
+      });
     }
   };
 
@@ -153,6 +182,9 @@ function mapDispatchToProps(dispatch) {
   return {
     register: (email, password) => {
       dispatch(registerUser(email, password));
+    },
+    userId: id => {
+      dispatch(keepUserId(id));
     }
   };
 }

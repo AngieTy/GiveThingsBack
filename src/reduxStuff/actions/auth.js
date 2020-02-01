@@ -12,6 +12,14 @@ export const VERIFY_REQUEST = "VERIFY_REQUEST";
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS";
 
 export const REGISTER = "REGISTERED";
+export const USER_ID = "ACHIEVED USER ID";
+
+const userId = id => {
+  return {
+    type: USER_ID,
+    id
+  };
+};
 
 const register = user => {
   return {
@@ -66,6 +74,12 @@ const verifySuccess = () => {
   return {
     type: VERIFY_SUCCESS
   };
+};
+
+//dziala
+export const keepUserId = id => dispatch => {
+  // console.log(fire.auth().currentUser());
+  dispatch(userId(id));
 };
 
 export const registerUser = (email, password) => dispatch => {

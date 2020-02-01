@@ -10,8 +10,6 @@ import HomeFooter from "./HomeFooter";
 
 class Home extends Component {
   render() {
-    console.log(this.props);
-
     return (
       <div className="home">
         <HomeHeader name="HomeHeader" attr={this.state} />

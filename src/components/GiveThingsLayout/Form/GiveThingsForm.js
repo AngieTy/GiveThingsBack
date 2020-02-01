@@ -6,6 +6,7 @@ import FormStepThree from "./FormStepThree";
 import FormStepFour from "./FormStepFour";
 import FormSummary from "./FormSummary";
 import ThanksFormView from "./ThanksFormView";
+import { connect } from "react-redux";
 
 class GiveThingsForm extends Component {
   state = {
@@ -30,7 +31,7 @@ class GiveThingsForm extends Component {
   };
 
   //przejście do drugiego etpu
-  handleSecondStep = state => {
+  handleSecondStep = () => {
     console.log("działam");
     this.setState({
       isFirstStepSeen: false,
@@ -39,7 +40,7 @@ class GiveThingsForm extends Component {
   };
 
   //powrot z 2 etapu do 1
-  handlePrevFirstStep = state => {
+  handlePrevFirstStep = () => {
     this.setState({
       isFirstStepSeen: true,
       isSecondStepSeen: false
@@ -296,4 +297,11 @@ class GiveThingsForm extends Component {
   }
 }
 
-export default GiveThingsForm;
+function mapStateToProps(state) {
+  console.log(state.auth);
+  return {
+    id: state.auth.id
+  };
+}
+
+export default connect(mapStateToProps)(GiveThingsForm);

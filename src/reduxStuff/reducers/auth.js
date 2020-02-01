@@ -7,7 +7,8 @@ import {
   LOGOUT_FAILURE,
   VERIFY_REQUEST,
   VERIFY_SUCCESS,
-  REGISTER
+  REGISTER,
+  USER_ID
 } from "../actions/auth";
 
 export default (
@@ -18,7 +19,8 @@ export default (
     loginError: false,
     logoutError: false,
     isAuthenticated: false,
-    user: {}
+    user: {},
+    id: {}
   },
   action
 ) => {
@@ -36,6 +38,12 @@ export default (
         isAuthenticated: true,
         user: action.user
       };
+    case USER_ID:
+      return {
+        ...state,
+        id: action.id
+      };
+
     case REGISTER:
       return {
         ...state,
