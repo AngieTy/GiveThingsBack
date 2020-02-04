@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { loginUser } from "../reduxStuff/actions/auth";
+import { keepUserId } from "../reduxStuff/actions/auth";
 import LoginHeaderNav from "./LoginHeaderNav";
 import ImgDeco from "../assets/assets/Decoration.svg";
 import "firebase/firestore";
@@ -21,6 +22,13 @@ class Login extends Component {
     });
   };
 
+  handleDownloadLoggedUserId = id => {
+    console.log(id);
+    this.setState(() => {
+      this.props.userId(id);
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
 
@@ -35,12 +43,10 @@ class Login extends Component {
       this.setState({
         passwordError: "Hasło musi mieć conajmniej 6 znaków."
       });
-      console.log("sukces");
     } else {
       this.setState({
         passwordError: ""
       });
-      console.log("sukces1.5");
     }
 
     if (validateEmail(email) === false || email.length === 0) {
@@ -55,8 +61,8 @@ class Login extends Component {
       });
     }
     if (validateEmail(email) === true && password.length > 5) {
-      console.log("sukces4");
-      console.log(email, password);
+      console.log("Login poprawny!");
+
       this.setState(
         {
           email: "",
@@ -68,6 +74,17 @@ class Login extends Component {
           this.props.login(email, password);
         }
       );
+
+      //zapytanie do bazy o id uzytkownika, ktory sie loguje
+      const db = firebase.firestore();
+      db.collection("users")
+        .where("email", "==", this.state.email)
+        .get()
+        .then(response => {
+          response.docs.forEach(doc => {
+            this.handleDownloadLoggedUserId(doc.id);
+          });
+        });
     }
   };
 
@@ -127,6 +144,9 @@ function mapDispatchToProps(dispatch) {
   return {
     login: (email, password) => {
       dispatch(loginUser(email, password));
+    },
+    userId: id => {
+      dispatch(keepUserId(id));
     }
   };
 }

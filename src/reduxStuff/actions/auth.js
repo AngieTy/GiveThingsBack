@@ -76,9 +76,8 @@ const verifySuccess = () => {
   };
 };
 
-//dziala
+//pobranie id użytkownika nadany przez FireStore
 export const keepUserId = id => dispatch => {
-  // console.log(fire.auth().currentUser());
   dispatch(userId(id));
 };
 
