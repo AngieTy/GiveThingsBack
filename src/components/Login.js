@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { loginUser } from "../reduxStuff/actions/auth";
 import { keepUserId } from "../reduxStuff/actions/auth";
-import LoginHeaderNav from "./LoginHeaderNav";
-import ImgDeco from "../assets/assets/Decoration.svg";
 import "firebase/firestore";
 import firebase from "firebase/app";
+import LoginHeaderNav from "./LoginHeaderNav";
+import ImgDeco from "../assets/assets/Decoration.svg";
 
 class Login extends Component {
   state = {
@@ -16,7 +16,7 @@ class Login extends Component {
     passwordError: ""
   };
 
-  handleChange = e => {
+  handleChangeInputValue = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -24,9 +24,7 @@ class Login extends Component {
 
   handleDownloadLoggedUserId = id => {
     console.log(id);
-    this.setState(() => {
-      this.props.userId(id);
-    });
+    this.props.userId(id);
   };
 
   handleSubmit = e => {
@@ -38,7 +36,6 @@ class Login extends Component {
     };
 
     const { email, password } = this.state;
-
     if (password.length < 6 || password.length === 0) {
       this.setState({
         passwordError: "Hasło musi mieć conajmniej 6 znaków."
@@ -48,13 +45,10 @@ class Login extends Component {
         passwordError: ""
       });
     }
-
     if (validateEmail(email) === false || email.length === 0) {
       this.setState({
         emailError: "Email nie jest poprawny."
       });
-
-      console.log("sukces2");
     } else {
       this.setState({
         emailError: ""
@@ -62,7 +56,6 @@ class Login extends Component {
     }
     if (validateEmail(email) === true && password.length > 5) {
       console.log("Login poprawny!");
-
       this.setState(
         {
           email: "",
@@ -112,7 +105,7 @@ class Login extends Component {
                     type="email"
                     name="email"
                     value={email}
-                    onChange={this.handleChange}
+                    onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{emailError}</span>}
                 </label>
@@ -122,7 +115,7 @@ class Login extends Component {
                     type="password"
                     name="password"
                     value={password}
-                    onChange={this.handleChange}
+                    onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{passwordError}</span>}
                 </label>
@@ -152,8 +145,6 @@ function mapDispatchToProps(dispatch) {
 }
 function mapStateToProps(state) {
   return {
-    isLoggingIn: state.auth.isLoggingIn,
-    loginError: state.auth.loginError,
     isAuthenticated: state.auth.isAuthenticated
   };
 }

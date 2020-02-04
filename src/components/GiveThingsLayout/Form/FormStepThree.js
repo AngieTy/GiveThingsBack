@@ -12,29 +12,30 @@ class FormStepThree extends Component {
     e.preventDefault();
     this.props.next();
   };
+
   //pobranie wartosci lokalizacji
-  handleCheckLocalization = e => {
-    if (typeof this.props.value === "function") {
+  handleGetLocalizationValue = e => {
+    if (typeof this.props.localization === "function") {
       let value = e.target.value;
-      this.props.value(value);
+      this.props.localization(value);
     }
   };
 
   //pobranie wartosci grupy docelowej
-  handleCheckGroups = e => {
+  handleGetHelpGroupValue = e => {
     if (e.target.checked) {
       let text = e.target.nextElementSibling.innerText;
-      this.props.value2(e, text);
+      this.props.helpGroups(e, text);
     } else {
       let text = "unchecked";
-      this.props.value2(e, text);
+      this.props.helpGroups(e, text);
     }
   };
   //pobranie wartosci miejsca oddania rzeczy
 
-  handleCheckSpecificLocalization = e => {
+  handleGetLocalizationSpecificValue = e => {
     let specLocal = e.target.value;
-    this.props.value3(specLocal);
+    this.props.localizationSpecific(specLocal);
   };
   render() {
     return (
@@ -43,7 +44,7 @@ class FormStepThree extends Component {
         <h2 className="form-header-localization">Lokalizacja:</h2>
         <select
           className="form-dropdown"
-          onChange={this.handleCheckLocalization}
+          onChange={this.handleGetLocalizationValue}
         >
           <option> - wybierz -</option>
           <option>Poznań</option>
@@ -56,31 +57,31 @@ class FormStepThree extends Component {
         <ul className="form-checkbox-list">
           <li className="checkbox-list-element">
             <label>
-              <input type="checkbox" onChange={this.handleCheckGroups} />
+              <input type="checkbox" onChange={this.handleGetHelpGroupValue} />
               <p>dzieciom</p>
             </label>
           </li>
           <li className="checkbox-list-element">
             <label>
-              <input type="checkbox" onChange={this.handleCheckGroups} />
+              <input type="checkbox" onChange={this.handleGetHelpGroupValue} />
               <p>samotnym matkom</p>
             </label>
           </li>
           <li className="checkbox-list-element">
             <label>
-              <input type="checkbox" onChange={this.handleCheckGroups} />
+              <input type="checkbox" onChange={this.handleGetHelpGroupValue} />
               <p>bezdomnym</p>
             </label>
           </li>
           <li className="checkbox-list-element">
             <label>
-              <input type="checkbox" onChange={this.handleCheckGroups} />
+              <input type="checkbox" onChange={this.handleGetHelpGroupValue} />
               <p>niepełnosprawnym</p>
             </label>
           </li>
           <li className="checkbox-list-element">
             <label>
-              <input type="checkbox" onChange={this.handleCheckGroups} />
+              <input type="checkbox" onChange={this.handleGetHelpGroupValue} />
               <p>osobom starszym</p>
             </label>
           </li>
@@ -91,7 +92,7 @@ class FormStepThree extends Component {
         <input
           type="text"
           className="form-optional-input"
-          onChange={this.handleCheckSpecificLocalization}
+          onChange={this.handleGetLocalizationSpecificValue}
         />
         <div className="form-btns">
           <button className="form-prev-btn" onClick={this.handlePrevStep}>

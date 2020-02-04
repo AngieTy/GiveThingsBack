@@ -14,45 +14,45 @@ class FormStepFour extends Component {
 
   //pobranie wartosci
   //ulicy
-  handleStreetValue = e => {
+  handleGetStreetValue = e => {
     let value = e.target.value;
-    this.props.value1(value);
+    this.props.street(value);
   };
 
   //miasta
-  handleCityValue = e => {
+  handleGetCityValue = e => {
     let value = e.target.value;
-    this.props.value2(value);
+    this.props.city(value);
   };
 
   //kodu pocztowego
   handlePostCodeValue = e => {
     let value = e.target.value;
-    this.props.value3(value);
+    this.props.postCode(value);
   };
 
   //nr tel
-  handlePhoneValue = e => {
+  handleGetPhoneValue = e => {
     let value = e.target.value;
-    this.props.value4(value);
+    this.props.phone(value);
   };
 
   //data
-  handleDateValue = e => {
+  handleGetPickupDate = e => {
     let value = e.target.value;
-    this.props.value5(value);
+    this.props.date(value);
   };
 
   //czas
-  handleTimeValue = e => {
+  handleGetPickupTime = e => {
     let value = e.target.value;
-    this.props.value6(value);
+    this.props.time(value);
   };
 
   //uwagi dla kuriera
-  handleNoteValue = e => {
+  handleGetCourierNote = e => {
     let value = e.target.value;
-    this.props.value7(value);
+    this.props.note(value);
   };
 
   render() {
@@ -68,23 +68,23 @@ class FormStepFour extends Component {
             <div className="form-address-box">
               <label className="form-input">
                 <span className="input-title">Ulica</span>
-                <input type="text" onChange={this.handleStreetValue} />
+                <input type="text" onChange={this.handleGetStreetValue} />
               </label>
               <label className="form-input">
                 <span className="input-title">Miasto</span>
-                <input type="text" onChange={this.handleCityValue} />
+                <input type="text" onChange={this.handleGetCityValue} />
               </label>
               <label className="form-input">
                 <span className="input-title">Kod pocztowy</span>
                 <input
                   type="text"
                   pattern="[0-9]{2}\-[0-9]{3}"
-                  onChange={this.handlePostCodeValue}
+                  onChange={this.handleGetPostCodeValue}
                 />
               </label>
               <label className="form-input">
                 <span className="input-title">Numer telefonu</span>
-                <input type="text" onChange={this.handlePhoneValue} />
+                <input type="text" onChange={this.handleGetPhoneValue} />
               </label>
             </div>
           </div>
@@ -93,15 +93,15 @@ class FormStepFour extends Component {
             <div className="form-address-box">
               <label className="form-input">
                 <span className="input-title">Data</span>
-                <input type="date" onChange={this.handleDateValue} />
+                <input type="date" onChange={this.handleGetPickupDate} />
               </label>
               <label className="form-input">
                 <span className="input-title">Godzina</span>
-                <input type="time" onChange={this.handleTimeValue} />
+                <input type="time" onChange={this.handleGetPickupTime} />
               </label>
               <label className="form-input last-input">
                 <span className="input-title">Uwagi dla kuriera</span>
-                <textarea onChange={this.handleNoteValue}></textarea>
+                <textarea onChange={this.handleGetCourierNote}></textarea>
               </label>
             </div>
           </div>

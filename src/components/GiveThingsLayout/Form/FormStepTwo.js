@@ -13,11 +13,11 @@ class FormStepTwo extends Component {
   };
 
   //pobranie wartosci z 2 etapu
-  handleCheck = e => {
+  handleGetBagsNumber = e => {
     e.preventDefault();
-    if (typeof this.props.value === "function") {
+    if (typeof this.props.bags === "function") {
       let value = e.target.value;
-      this.props.value(value);
+      this.props.bags(value);
     }
   };
 
@@ -33,7 +33,7 @@ class FormStepTwo extends Component {
           <select
             className="form-dropdown"
             name="number"
-            onChange={this.handleCheck}
+            onChange={this.handleGetBagsNumber}
           >
             <option> - wybierz -</option>
             <option>1</option>

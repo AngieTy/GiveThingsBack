@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../reduxStuff/actions/auth";
 
 class GiveThingsHeaderNav extends Component {
-  handleLogout = e => {
+  handleLogoutUser = () => {
     const { dispatch } = this.props;
     dispatch(logoutUser());
   };
@@ -17,7 +17,7 @@ class GiveThingsHeaderNav extends Component {
             <button className="home-give-btn"> Oddaj rzeczy </button>
           </Link>
           <Link to="/wylogowano">
-            <button className="home-logout-btn" onClick={this.handleLogout}>
+            <button className="home-logout-btn" onClick={this.handleLogoutUser}>
               Wyloguj się
             </button>
           </Link>
@@ -46,7 +46,6 @@ class GiveThingsHeaderNav extends Component {
   }
 }
 function mapStateToProps(state) {
-  console.log(state.auth.user);
   return {
     user: state.auth.user.user.email,
     isAuthenticated: state.auth.isAuthenticated

@@ -12,13 +12,13 @@ class HomeForm extends Component {
     succes: false
   };
 
-  handleChange = e => {
+  handleChangeInputValue = e => {
     this.setState({
       [e.target.name]: e.target.value
     });
   };
 
-  handleSubmit = e => {
+  handleSubmitForm = e => {
     e.preventDefault();
 
     const url = "https://fer-api.coderslab.pl/v1/portfolio/contact";
@@ -32,7 +32,6 @@ class HomeForm extends Component {
       method: "POST",
       headers: {
         "content-type": "application/json"
-        // "X-Auth-Token": "20200108224609"
       },
       body: JSON.stringify(data)
     })
@@ -47,14 +46,7 @@ class HomeForm extends Component {
         console.log(error);
       });
 
-    const {
-      name,
-      email,
-      textarea
-      // errorName,
-      // errorEmail,
-      // errorTextarea
-    } = this.state;
+    const { name, email, textarea } = this.state;
 
     const validateEmail = email => {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -63,8 +55,6 @@ class HomeForm extends Component {
 
     if (name.length < 1) {
       this.setState({ errorName: "Pole nie może być puste." });
-
-      console.log("sukces");
     } else {
       this.setState({
         errorName: ""
@@ -73,8 +63,6 @@ class HomeForm extends Component {
 
     if (validateEmail(email) === false) {
       this.setState({ errorEmail: "Email nie jest poprawny." });
-
-      console.log("sukces2");
     } else {
       this.setState({
         errorEmail: ""
@@ -84,14 +72,11 @@ class HomeForm extends Component {
       this.setState({
         errorTextarea: "Wiadomość powinna mieć minimum 120 znaków."
       });
-
-      console.log("sukces3");
     } else {
       this.setState({
         errorTextarea: ""
       });
     }
-
     if (
       name.length > 1 &&
       validateEmail(email) === true &&
@@ -106,7 +91,6 @@ class HomeForm extends Component {
         errorEmail: "",
         errorTextarea: ""
       });
-      // return true;
     }
   };
 
@@ -125,7 +109,7 @@ class HomeForm extends Component {
           <div className="home-opacity-modifier clearfix">
             <form
               className="home-form-form"
-              onSubmit={this.handleSubmit}
+              onSubmit={this.handleSubmitForm}
               noValidate
             >
               <h2 className="form-header">Skontaktuj się z nami</h2>
@@ -138,7 +122,7 @@ class HomeForm extends Component {
                     name="name"
                     value={name}
                     placeholder="Angelika"
-                    onChange={this.handleChange}
+                    onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{errorName}</span>}
                 </label>
@@ -150,7 +134,7 @@ class HomeForm extends Component {
                     name="email"
                     value={email}
                     placeholder="abc@xyz.pl"
-                    onChange={this.handleChange}
+                    onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{errorEmail}</span>}
                 </label>
@@ -162,7 +146,7 @@ class HomeForm extends Component {
                     className="form-text-area"
                     name="textarea"
                     value={textarea}
-                    onChange={this.handleChange}
+                    onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{errorTextarea}</span>}
                 </label>

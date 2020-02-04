@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../reduxStuff/actions/auth";
 
 class HomeHeaderNavLogged extends Component {
-  handleLogout = e => {
+  handleLogout = () => {
     const { dispatch } = this.props;
     dispatch(logoutUser());
   };

@@ -73,7 +73,6 @@ class Registration extends Component {
       password.length > 5 &&
       repeatPassword === password
     ) {
-      console.log("sukces4");
       this.setState(
         {
           email: "",

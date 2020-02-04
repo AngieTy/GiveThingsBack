@@ -3,9 +3,6 @@ import clothes from "../../../assets/assets/Icon-1.svg";
 import arrows from "../../../assets/assets/Icon-4.svg";
 
 class FormSummary extends Component {
-  state = {
-    helpGroups: this.props.data.helpGroups
-  };
   //powrot do etapu 4
 
   handlePrevStep = e => {
@@ -15,7 +12,7 @@ class FormSummary extends Component {
 
   //przejscie to ostatniego etapu i wyslanie formularza
 
-  handleSubmit = e => {
+  handleSubmitForm = e => {
     e.preventDefault();
     this.props.next();
     this.props.sendData();
@@ -29,8 +26,8 @@ class FormSummary extends Component {
           <div className="form-summary-box">
             <img src={clothes} alt="tshirt-img" />
             <span className="form-summary-clothes">
-              {this.props.data.bags}, {this.props.data.type},
-              {this.state.helpGroups}
+              {this.props.data.bags}, {this.props.data.type},{" "}
+              {this.props.data.helpGroups}
             </span>
           </div>
           <div className="form-summary-box">
@@ -84,7 +81,7 @@ class FormSummary extends Component {
           <button className="form-prev-btn" onClick={this.handlePrevStep}>
             Wstecz
           </button>
-          <button className="form-next-btn" onClick={this.handleSubmit}>
+          <button className="form-next-btn" onClick={this.handleSubmitForm}>
             Potwierdzam
           </button>
         </div>

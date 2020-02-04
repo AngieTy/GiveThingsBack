@@ -111,28 +111,27 @@ class GiveThingsForm extends Component {
   //FUNKCJE POBIERANIA WARTOSCI Z DZIECI
 
   // pobranie wartosci z 1 etapu
-  handleDownloadValueFromFirstStep = state => {
+  handleGetThingsToGive = type => {
     this.setState({
-      type: state
+      type: type
     });
   };
 
   //pobranie wartosci z 2 etapu
-  handleDownloadValueFromSecondStep = state => {
+  handleGetBagsNumber = bags => {
     this.setState({
-      bags: state
+      bags: bags
     });
   };
 
   //pobranie wartosci lokalizacji z 3 etapu
-  handleDownloadValueFromThirdtStep1 = localization => {
+  handleGetLocalizationValue = localization => {
     this.setState({
       localization: localization
     });
   };
   //pobranie grup osob z 3 etapu
-
-  handleDownloadValueFromThirdStep2 = (e, groups) => {
+  handleGetHelpGroups = (e, groups) => {
     if (groups !== "unchecked") {
       this.setState({
         helpGroups: [...this.state.helpGroups, groups]
@@ -149,59 +148,59 @@ class GiveThingsForm extends Component {
 
   //pobranie opcjonalnej organizacji z 3 etapu
 
-  handleDownloadValueFromThirdStep3 = organization => {
+  handleGetLocalizationSpecific = organization => {
     this.setState({
       localizationSpecific: organization
     });
   };
 
-  //pobranie wartosci ulicy
+  //pobranie wartosci z 4 etapu - ulicy
 
-  handleDownloadValueFromFourthStep1 = street => {
+  handleGetStreetValue = street => {
     this.setState({
       street: street
     });
   };
 
-  //pobranie wartosci miasta
-  handleDownloadValueFromFourthStep2 = city => {
+  //pobranie wartosci z 4 etapu - miasta
+  handleGetCityValue = city => {
     this.setState({
       city: city
     });
   };
 
-  //pobranie wartosci kodu pocztowego
+  //pobranie wartosci z 4 etapu - kodu pocztowego
 
-  handleDownloadValueFromFourthStep3 = postCode => {
+  handleGetPostCodeValue = postCode => {
     this.setState({
       postCode: postCode
     });
   };
 
-  //pobranie wartosci nr tel
+  //pobranie wartosci z 4 etapu -  nr tel
 
-  handleDownloadValueFromFourthStep4 = number => {
+  handleGetPhoneNumberValue = number => {
     this.setState({
       phone: number
     });
   };
 
-  //pobranie daty
-  handleDownloadValueFromFourthStep5 = date => {
+  //pobranie wartosci z 4 etapu -  daty
+  handleGetPickupDate = date => {
     this.setState({
       date: date
     });
   };
 
-  //pobranie godziny
-  handleDownloadValueFromFourthStep6 = time => {
+  //pobranie wartosci z 4 etapu - godziny
+  handleGetPickupTime = time => {
     this.setState({
       time: time
     });
   };
 
-  //pobranie uwag dla kuriera
-  handleDownloadValueFromFourthStep7 = note => {
+  //pobranie wartosci z 4 etapu -  uwag dla kuriera
+  handleGetCourierNote = note => {
     this.setState({
       note: note
     });
@@ -214,7 +213,7 @@ class GiveThingsForm extends Component {
       city: this.state.city,
       type: this.state.type,
       localization: this.state.localization,
-      helpGroups: [...this.state.helpGroups],
+      helpGroups: this.state.helpGroups,
       localizationSpecific: this.state.localizationSpecific,
       street: this.state.street,
       postCode: this.state.postCode,
@@ -223,28 +222,11 @@ class GiveThingsForm extends Component {
       time: this.state.time,
       note: this.state.note
     };
+    //pobranie id uzytkownika
     const db = firebase.firestore();
     const userRef = db.collection("users").doc(this.state.currentUserId);
-    //mam id naszego uzytkownika pobrane z firebase
-    // console.log(userRef.id);
-    // console.log(userRef);
-    //pobranie dokumentow z kolekcji
-    // db.collection("users")
-    //   .get()
-    //   .then(snapshot => {
-    //     console.log(snapshot.docs);
 
-    //dostanie sie do informacji w poszczegolnym dokumencie
-    // snapshot.docs.forEach(doc => {
-    //   console.log(doc.data());
-    // });
-    // });
-    //pobranie danych poszczegolnego dokumentu
-    userRef.get().then(doc => {
-      console.log(doc.data());
-    });
-
-    //wyslanie do bazy
+    //wyslanie do bazy formularza do aktualnego uzytkownika
     userRef
       .collection("messages")
       .add({ formData })
@@ -252,7 +234,7 @@ class GiveThingsForm extends Component {
         console.log("Pomyślnie wysłano dokument!");
       })
       .catch(() => {
-        console.log("Ups!Coś poszło źle!");
+        console.log("Ups! Coś poszło źle!");
       });
   };
 
@@ -272,7 +254,7 @@ class GiveThingsForm extends Component {
           <form className="form">
             <FormStepOne
               next={this.handleSecondStep}
-              value={this.handleDownloadValueFromFirstStep}
+              type={this.handleGetThingsToGive}
             />
           </form>
         </section>
@@ -285,7 +267,7 @@ class GiveThingsForm extends Component {
             <FormStepTwo
               next={this.handleThirdStep}
               prev={this.handlePrevFirstStep}
-              value={this.handleDownloadValueFromSecondStep}
+              bags={this.handleGetBagsNumber}
             />
           </form>
         </section>
@@ -298,9 +280,9 @@ class GiveThingsForm extends Component {
             <FormStepThree
               next={this.handleFourthStep}
               prev={this.handlePrevSecondStep}
-              value={this.handleDownloadValueFromThirdtStep1}
-              value2={this.handleDownloadValueFromThirdStep2}
-              value3={this.handleDownloadValueFromThirdStep3}
+              localization={this.handleGetLocalizationValue}
+              helpGroups={this.handleGetHelpGroups}
+              localizationSpecific={this.handleGetLocalizationSpecific}
             />
           </form>
         </section>
@@ -313,13 +295,13 @@ class GiveThingsForm extends Component {
             <FormStepFour
               prev={this.handlePrevThirdStep}
               next={this.handleFifthStep}
-              value1={this.handleDownloadValueFromFourthStep1}
-              value2={this.handleDownloadValueFromFourthStep2}
-              value3={this.handleDownloadValueFromFourthStep3}
-              value4={this.handleDownloadValueFromFourthStep4}
-              value5={this.handleDownloadValueFromFourthStep5}
-              value6={this.handleDownloadValueFromFourthStep6}
-              value7={this.handleDownloadValueFromFourthStep7}
+              street={this.handleGetStreetValue}
+              city={this.handleGetCityValue}
+              postCode={this.handleGetPostCodeValue}
+              phone={this.handleGetPhoneNumberValue}
+              date={this.handleGetPickupDate}
+              time={this.handleGetPickupTime}
+              note={this.handleGetCourierNote}
             />
           </form>
         </section>

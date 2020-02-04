@@ -13,33 +13,24 @@ class HomeHelp extends Component {
   }
 
   handleButtonFundations = () => {
-    this.setState(state => {
-      console.log("klik!");
-      return {
-        isFundationsClicked: true,
-        isOrganizationsClicked: false,
-        isLocalsClicked: false
-      };
+    this.setState({
+      isFundationsClicked: true,
+      isOrganizationsClicked: false,
+      isLocalsClicked: false
     });
   };
   handleButtonOrganizations = () => {
-    this.setState(state => {
-      console.log("klik!");
-      return {
-        isFundationsClicked: false,
-        isOrganizationsClicked: true,
-        isLocalsClicked: false
-      };
+    this.setState({
+      isFundationsClicked: false,
+      isOrganizationsClicked: true,
+      isLocalsClicked: false
     });
   };
   handleButtonLocals = () => {
-    this.setState(state => {
-      console.log("klik!");
-      return {
-        isFundationsClicked: false,
-        isOrganizationsClicked: false,
-        isLocalsClicked: true
-      };
+    this.setState({
+      isFundationsClicked: false,
+      isOrganizationsClicked: false,
+      isLocalsClicked: true
     });
   };
 
@@ -155,24 +146,16 @@ class HomeHelp extends Component {
         needs: "kupa złota, kupa kamienia, kupa ludzi"
       }
     ];
-    const {
-      isFundationsClicked,
-      isOrganizationsClicked,
-      isLocalsClicked
-    } = this.state;
+    const { isFundationsClicked, isOrganizationsClicked } = this.state;
 
     let pagination;
 
     if (isFundationsClicked) {
-      pagination = (
-        <HomeHelpPagination data={fundations} areClicked={this.state} />
-      );
+      pagination = <HomeHelpPagination data={fundations} />;
     } else if (isOrganizationsClicked) {
-      pagination = (
-        <HomeHelpPagination data={organizations} areClicked={this.state} />
-      );
+      pagination = <HomeHelpPagination data={organizations} />;
     } else {
-      pagination = <HomeHelpPagination data={locals} areClicked={this.state} />;
+      pagination = <HomeHelpPagination data={locals} />;
     }
 
     return (
@@ -180,25 +163,13 @@ class HomeHelp extends Component {
         <h2 className="home-help-header">Komu pomagamy</h2>
         <img src={ImgDeco} alt="decoration" />
         <div className="help-btns-box">
-          <button
-            className="help-btn"
-            onClick={this.handleButtonFundations}
-            click={isFundationsClicked}
-          >
+          <button className="help-btn" onClick={this.handleButtonFundations}>
             Fundacjom
           </button>
-          <button
-            className="help-btn"
-            onClick={this.handleButtonOrganizations}
-            click={isOrganizationsClicked}
-          >
+          <button className="help-btn" onClick={this.handleButtonOrganizations}>
             Organizacjom pozarządowym
           </button>
-          <button
-            className="help-btn"
-            onClick={this.handleButtonLocals}
-            click={isLocalsClicked}
-          >
+          <button className="help-btn" onClick={this.handleButtonLocals}>
             Lokalnym zbiórkom
           </button>
         </div>

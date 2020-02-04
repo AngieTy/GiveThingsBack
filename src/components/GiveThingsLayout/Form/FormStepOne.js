@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class FormStepOne extends Component {
   //pobranie wartosci do przekania rodzicowi
-  handleCheck = e => {
-    if (typeof this.props.value === "function") {
+  handleGetInputValue = e => {
+    if (typeof this.props.type === "function") {
       let value = e.target.parentElement.innerText;
-      this.props.value(value);
+      this.props.type(value);
     }
   };
 
@@ -26,7 +26,7 @@ class FormStepOne extends Component {
               type="radio"
               value="type"
               name="type"
-              onClick={this.handleCheck}
+              onClick={this.handleGetInputValue}
             />
             ubrania, które nie nadają się do ponownego użycia
           </label>
@@ -35,7 +35,7 @@ class FormStepOne extends Component {
               type="radio"
               value="type"
               name="type"
-              onClick={this.handleCheck}
+              onClick={this.handleGetInputValue}
             />
             ubrania, do wyrzucenia
           </label>
@@ -44,7 +44,7 @@ class FormStepOne extends Component {
               type="radio"
               value="type"
               name="type"
-              onClick={this.handleCheck}
+              onClick={this.handleGetInputValue}
             />
             zabawki
           </label>
@@ -53,7 +53,7 @@ class FormStepOne extends Component {
               type="radio"
               value="type"
               name="type"
-              onClick={this.handleCheck}
+              onClick={this.handleGetInputValue}
             />
             książki
           </label>
@@ -62,7 +62,7 @@ class FormStepOne extends Component {
               type="radio"
               value="type"
               name="type"
-              onClick={this.handleCheck}
+              onClick={this.handleGetInputValue}
             />
             inne
           </label>
