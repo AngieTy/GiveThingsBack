@@ -7,6 +7,8 @@ import FormStepFour from "./FormStepFour";
 import FormSummary from "./FormSummary";
 import ThanksFormView from "./ThanksFormView";
 import { connect } from "react-redux";
+import "firebase/firestore";
+import firebase from "firebase/app";
 
 class GiveThingsForm extends Component {
   state = {
@@ -27,12 +29,12 @@ class GiveThingsForm extends Component {
     isThirdStepSeen: false,
     isFourthStepSeen: false,
     isSummarySeen: false,
-    isThanksSeen: false
+    isThanksSeen: false,
+    currentUserId: this.props.id
   };
 
   //przejście do drugiego etpu
   handleSecondStep = () => {
-    console.log("działam");
     this.setState({
       isFirstStepSeen: false,
       isSecondStepSeen: true
@@ -204,6 +206,56 @@ class GiveThingsForm extends Component {
       note: note
     });
   };
+
+  // FIREBASE
+  handleSendUserForm = () => {
+    const formData = {
+      bags: this.state.bags,
+      city: this.state.city,
+      type: this.state.type,
+      localization: this.state.localization,
+      helpGroups: [...this.state.helpGroups],
+      localizationSpecific: this.state.localizationSpecific,
+      street: this.state.street,
+      postCode: this.state.postCode,
+      phone: this.state.phone,
+      date: this.state.date,
+      time: this.state.time,
+      note: this.state.note
+    };
+    const db = firebase.firestore();
+    const userRef = db.collection("users").doc(this.state.currentUserId);
+    //mam id naszego uzytkownika pobrane z firebase
+    // console.log(userRef.id);
+    // console.log(userRef);
+    //pobranie dokumentow z kolekcji
+    // db.collection("users")
+    //   .get()
+    //   .then(snapshot => {
+    //     console.log(snapshot.docs);
+
+    //dostanie sie do informacji w poszczegolnym dokumencie
+    // snapshot.docs.forEach(doc => {
+    //   console.log(doc.data());
+    // });
+    // });
+    //pobranie danych poszczegolnego dokumentu
+    userRef.get().then(doc => {
+      console.log(doc.data());
+    });
+
+    //wyslanie do bazy
+    userRef
+      .collection("messages")
+      .add({ formData })
+      .then(() => {
+        console.log("Pomyślnie wysłano dokument!");
+      })
+      .catch(() => {
+        console.log("Ups!Coś poszło źle!");
+      });
+  };
+
   render() {
     const {
       isFirstStepSeen,
@@ -281,6 +333,7 @@ class GiveThingsForm extends Component {
               prev={this.handlePrevFourthStep}
               next={this.handleFinalStep}
               data={this.state}
+              sendData={this.handleSendUserForm}
             />
           </form>
         </section>
@@ -298,7 +351,7 @@ class GiveThingsForm extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.auth);
+  console.log(state.auth.id);
   return {
     id: state.auth.id
   };

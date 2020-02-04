@@ -18,6 +18,7 @@ class FormSummary extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.next();
+    this.props.sendData();
   };
   render() {
     return (
@@ -35,7 +36,7 @@ class FormSummary extends Component {
           <div className="form-summary-box">
             <img src={arrows} alt="recycle-img" />
             <span className="form-summary-clothes">
-              do lokalizacji: {this.props.data.localization}}
+              do lokalizacji: {this.props.data.localization}
             </span>
           </div>
         </div>

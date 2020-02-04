@@ -15,8 +15,7 @@ class Registration extends Component {
     errorEmail: "",
     errorPassword: "",
     errorRepeatPassword: "",
-    user: "",
-    id: ""
+    user: ""
   };
 
   handleChange = e => {
@@ -28,14 +27,9 @@ class Registration extends Component {
   //wyciągnięcie id uzytkownika
   handleDownloadUserId = userId => {
     console.log(userId);
-    this.setState(
-      {
-        id: userId
-      },
-      () => {
-        this.props.userId(userId);
-      }
-    );
+    this.setState(() => {
+      this.props.userId(userId);
+    });
   };
 
   handleSubmit = e => {
