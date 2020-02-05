@@ -283,6 +283,7 @@ class GiveThingsForm extends Component {
               localization={this.handleGetLocalizationValue}
               helpGroups={this.handleGetHelpGroups}
               localizationSpecific={this.handleGetLocalizationSpecific}
+              parentState={this.state.helpGroups}
             />
           </form>
         </section>
@@ -302,6 +303,7 @@ class GiveThingsForm extends Component {
               date={this.handleGetPickupDate}
               time={this.handleGetPickupTime}
               note={this.handleGetCourierNote}
+              parentState={this.state}
             />
           </form>
         </section>

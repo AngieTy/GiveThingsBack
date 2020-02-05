@@ -44,6 +44,7 @@
     list-style: none;
     @include flex(row, stretch);
     flex-wrap: wrap;
+    position: relative;
     .checkbox-list-element {
       width: auto;
       padding: 10px 25px;
@@ -78,6 +79,13 @@
         position: relative;
         z-index: 3;
       }
+    }
+    .form-error-message {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      color: red;
+      font-size: 0.9rem;
     }
   }
   .form-header-optional {

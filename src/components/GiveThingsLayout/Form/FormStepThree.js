@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 class FormStepThree extends Component {
+  state = {
+    errorMessage: ""
+  };
   //powrót do 3 etapu
   handlePrevStep = e => {
     e.preventDefault();
@@ -10,7 +13,20 @@ class FormStepThree extends Component {
   //przejscie do 4 etapu
   handleNextStep = e => {
     e.preventDefault();
-    this.props.next();
+    const inputsElements = [
+      ...document.querySelectorAll("input[type=checkbox]")
+    ];
+    const isInputChecked = inputsElements.some(element => element.checked);
+    if (isInputChecked || this.props.parentState.length > 0) {
+      this.props.next();
+      this.setState({
+        errorMessage: ""
+      });
+    } else {
+      this.setState({
+        errorMessage: "Wybierz conajmniej jeden element."
+      });
+    }
   };
 
   //pobranie wartosci lokalizacji
@@ -37,7 +53,9 @@ class FormStepThree extends Component {
     let specLocal = e.target.value;
     this.props.localizationSpecific(specLocal);
   };
+
   render() {
+    const { errorMessage } = this.state;
     return (
       <div className="form-step-three">
         <div className="form-step-number">Krok 3/4</div>
@@ -85,6 +103,7 @@ class FormStepThree extends Component {
               <p>osobom starszym</p>
             </label>
           </li>
+          {<p className="form-error-message">{errorMessage}</p>}
         </ul>
         <h3 className="form-header-optional">
           Wpisz nazwę konkretnej organizacji (opcjonalnie)
