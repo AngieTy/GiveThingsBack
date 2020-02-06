@@ -10,3 +10,12 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .home-header {
+    height: 90vh;
+    .home-header-img {
+      height: 90vh;
+    }
+  }
+}

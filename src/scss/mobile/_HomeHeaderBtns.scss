@@ -56,12 +56,20 @@
       padding: 20px 0 35px 0;
     }
     .header-btns-box {
+      height: 25vh;
+      @include flex(column, center);
+
       a {
+        height: 100%;
         justify-content: space-around;
+
+        &:first-child {
+          margin-bottom: 20px;
+        }
         button {
           @include button;
           width: 80%;
-          font-size: 1.4rem;
+          font-size: 1.6rem;
         }
       }
     }

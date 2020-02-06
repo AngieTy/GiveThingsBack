@@ -1,0 +1,23 @@
+@media screen and (max-width: 800px) {
+  .home-logs {
+    margin-top: 37px;
+    .home-log-btn,
+    .home-register-btn {
+      cursor: pointer;
+      outline: none;
+      border: none;
+      margin-left: 4px;
+      color: $fourthColor;
+      background-color: white;
+      font-size: 1.1rem;
+      line-height: 1.4rem;
+      padding: 9px 10px;
+    }
+    .home-register-btn {
+      border: 0.75px solid $thirdColor;
+    }
+  }
+  .home-nav {
+    display: none;
+  }
+}

@@ -1,24 +1,29 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
-import HomeBurgerMenu from "./HomeBugerMenu";
 
-class HomeHeaderNav extends Component {
+class HomeBurgerMenu extends Component {
+  state = {
+    isShown: false
+  };
+  handleToggleMenu = () => {
+    this.setState({
+      isShown: !this.state.isShown
+    });
+  };
+
   render() {
+    const { isShown } = this.state;
+    const style = {
+      left: isShown ? "0" : "-120%"
+    };
     return (
       <>
-        <HomeBurgerMenu />
-        <div className="home-logs">
-          <Link to="/logowanie">
-            <button className="home-log-btn"> Zaloguj się </button>
-          </Link>
-          <Link to="/rejestracja">
-            <button className="home-register-btn">Załóż konto</button>
-          </Link>
-        </div>
-
-        <nav className="home-nav">
-          <ul className="home-nav-list">
+        <span
+          className="burger-menu-btn"
+          onClick={this.handleToggleMenu}
+        ></span>
+        <div className="burger-menu" style={style}>
+          <ul className="burger-nav-list">
             <li>
               <ScrollLink
                 activeClass="active"
@@ -80,10 +85,10 @@ class HomeHeaderNav extends Component {
               </ScrollLink>
             </li>
           </ul>
-        </nav>
+        </div>
       </>
     );
   }
 }
 
-export default HomeHeaderNav;
+export default HomeBurgerMenu;
