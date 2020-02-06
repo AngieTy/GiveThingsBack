@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import ImgDeco from "../assets/assets/Decoration.svg";
+import "firebase/firestore";
+import firebase from "firebase/app";
 
 class HomeForm extends Component {
   state = {
     name: "",
     email: "",
-    textarea: "",
+    message: "",
     errorName: "",
     errorEmail: "",
     errorTextarea: "",
@@ -25,7 +27,7 @@ class HomeForm extends Component {
     const data = {
       name: this.state.name,
       email: this.state.email,
-      message: this.state.textarea
+      message: this.state.message
     };
 
     fetch(url, {
@@ -46,7 +48,7 @@ class HomeForm extends Component {
         console.log(error);
       });
 
-    const { name, email, textarea } = this.state;
+    const { name, email, message } = this.state;
 
     const validateEmail = email => {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -68,7 +70,7 @@ class HomeForm extends Component {
         errorEmail: ""
       });
     }
-    if (textarea.length < 120) {
+    if (message.length < 120) {
       this.setState({
         errorTextarea: "Wiadomość powinna mieć minimum 120 znaków."
       });
@@ -80,13 +82,27 @@ class HomeForm extends Component {
     if (
       name.length > 1 &&
       validateEmail(email) === true &&
-      textarea.length > 120
+      message.length > 120
     ) {
+      const db = firebase.firestore();
+      db.collection("contactFormMessages")
+        .doc(this.state.email)
+        .collection("message")
+        .add({
+          email: this.state.email,
+          name: this.state.name,
+          message: this.state.message
+        })
+        .then(() => {
+          console.log("Pomyślnie wysłano wiadomość");
+        })
+        .catch(() => {
+          console.log("Ups! Coś poszło nie tak :C");
+        });
       this.setState({
         name: "",
         email: "",
-        textarea: "",
-        isLogged: true,
+        message: "",
         errorName: "",
         errorEmail: "",
         errorTextarea: ""
@@ -98,7 +114,7 @@ class HomeForm extends Component {
     const {
       name,
       email,
-      textarea,
+      message,
       errorName,
       errorEmail,
       errorTextarea
@@ -144,8 +160,8 @@ class HomeForm extends Component {
                   Wpisz swoją wiadomość
                   <textarea
                     className="form-text-area"
-                    name="textarea"
-                    value={textarea}
+                    name="message"
+                    value={message}
                     onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{errorTextarea}</span>}
