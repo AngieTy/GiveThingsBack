@@ -3,7 +3,7 @@
   width: 100%;
   background-color: $firstColor;
   @include flex(row, center);
- 
+
   .about-container {
     text-align: center;
     width: 52%;
@@ -30,11 +30,12 @@
       margin-right: 100px;
     }
   }
-  .team {
-    height: 100%;
+  .team-box {
     width: 50%;
-    background-image:url("../../assets/assets/People.jpg");
-    background-position: center;
-    background-size: 150%;
+    height: 100%;
+    overflow: hidden;
+    .team {
+      height: 100%;
+    }
   }
 }

@@ -5,10 +5,10 @@
 @import "./settings/mixins";
 html,
 body {
+  margin: 0 auto;
   box-sizing: border-box;
   font-size: 16px;
   font-family: $font-base;
-  // width: 100%;
   max-width: 100%;
   height: 100%;
   color: $fifthColor;
@@ -16,10 +16,8 @@ body {
 .home {
   @include flex(column, center);
   position: relative;
-  // max-width: 1300px;
-  margin: 0 auto;
 }
-
+//import styli poszczególnych komponentow
 @import "./components/HomeHeader";
 @import "./components/HomeHeaderNav";
 @import "./components/HomeHeaderNavLogged";
@@ -44,3 +42,6 @@ body {
 @import "./components/Form/FormStepFour";
 @import "./components/Form/FormSummary";
 @import "./components/Form/ThanksFormView";
+
+//import styli mobile
+@import "./mobile/Mobile";

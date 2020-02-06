@@ -1,7 +1,7 @@
 .home-header-btns {
   width: 670px;
   margin-top: 70px;
-  align-self: center;
+  align-self: flex-end;
   text-align: center;
   .home-header-banner {
     @include header;

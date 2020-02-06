@@ -9,19 +9,20 @@ class HomeHeader extends Component {
   render() {
     return (
       <section className="home-header" id={this.props.name}>
-        <div className="home-header-img"></div>
-        <div className="home-header-container">
-          {this.props.isAuthenticated ? (
-            <>
-              <HomeHeaderNavLogged />
-              <HomeHeaderBtnsLogged />
-            </>
-          ) : (
-            <>
-              <HomeHeaderNav />
-              <HomeHeaderBtns />
-            </>
-          )}
+        <div className="home-header-img">
+          <div className="home-header-container">
+            {this.props.isAuthenticated ? (
+              <>
+                <HomeHeaderNavLogged />
+                <HomeHeaderBtnsLogged />
+              </>
+            ) : (
+              <>
+                <HomeHeaderNav />
+                <HomeHeaderBtns />
+              </>
+            )}
+          </div>
         </div>
       </section>
     );
