@@ -1,0 +1,43 @@
+@media screen and (max-width: 1000px) {
+  .home-four-steps {
+    margin-top: 40px;
+    width: 100%;
+    @include flex(column, center);
+    .home-steps-header {
+      text-align: center;
+      margin-bottom: 30px;
+      img {
+        padding-top: 20px;
+      }
+    }
+    .four-steps-container {
+      @include flex(row, center);
+      justify-content: space-evenly;
+      .four-steps-box {
+        width: 14%;
+        text-align: center;
+      }
+    }
+    .four-steps-button {
+      padding: 35px 0 60px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .home-four-steps {
+    @include flex(column, center);
+    .four-steps-container {
+      height: 100%;
+      @include flex(column, center);
+      .four-steps-box {
+        margin-top: 30px;
+        width: 80%;
+        text-align: center;
+        &:last-of-type {
+          margin-bottom: 40px;
+        }
+      }
+    }
+  }
+}
