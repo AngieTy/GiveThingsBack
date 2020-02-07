@@ -1,0 +1,23 @@
+@media screen and (max-width: 750px) {
+  .home-help-pagination {
+    .pagination-container {
+      .pagination-element {
+        .pagination-header {
+          margin-bottom: 10px;
+          width: 50%;
+        }
+        .pagination-content {
+          width: 40%;
+          float: right;
+          text-align: right;
+        }
+        .pagination-header-small {
+          width: 50%;
+        }
+      }
+    }
+    .pagination-pages {
+      margin-top: 30px;
+    }
+  }
+}
