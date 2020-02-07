@@ -1,0 +1,60 @@
+@media screen and (max-width: 1000px) {
+  .home-about {
+    height: 80vh;
+    @include flex(row, center);
+    .about-container {
+      .about-header {
+        padding-bottom: 20px;
+      }
+      img {
+        width: 37%;
+      }
+      .signature {
+        width: 30%;
+        align-self: flex-end;
+        margin-right: 60px;
+      }
+    }
+    .team-box {
+      .team {
+        left: -30%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .home-about {
+    height: 100%;
+    background-color: $firstColor;
+    @include flex(column, center);
+    .about-container {
+      text-align: center;
+      width: 80%;
+      @include flex(column, center);
+      .about-header {
+        @include header;
+        padding: 26px 0 16px 0;
+      }
+      .about-content {
+        width: 100%;
+      }
+      img {
+        width: 60%;
+      }
+      .signature {
+        margin: 10px 0;
+      }
+    }
+    .team-box {
+      width: 100%;
+      overflow: auto;
+      position: static;
+
+      .team {
+        width: 100vw;
+        position: static;
+      }
+    }
+  }
+}
