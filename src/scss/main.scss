@@ -16,6 +16,7 @@ body {
 .home {
   @include flex(column, center);
   position: relative;
+  overflow-x: hidden;
 }
 //import styli poszczególnych komponentow
 @import "./components/HomeHeader";
