@@ -1,9 +1,7 @@
 .home-three-columns {
   width: 100%;
   @include flex(row, center);
-
   background-image: url("../../assets/assets/3_cols_background.png");
-  background-size: 100%;
   justify-content: space-around;
   .three-columns-box {
     @include flex(column, center);
