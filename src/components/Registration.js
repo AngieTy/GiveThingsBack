@@ -26,19 +26,19 @@ class Registration extends Component {
 
   //wyciągnięcie id uzytkownika
   handleDownloadUserId = userId => {
-    console.log(userId);
     this.setState(() => {
       this.props.userId(userId);
     });
   };
-
+  handleGetEmailUsers = emails => {
+    console.log(emails);
+  };
   handleSubmit = e => {
     e.preventDefault();
     const validateEmail = email => {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     };
-
     const { email, password, repeatPassword, id } = this.state;
 
     if (password.length < 6) {
@@ -84,20 +84,19 @@ class Registration extends Component {
         },
         () => {
           this.props.register(email, password);
+          const userRef = db.collection("users").add({
+            email: this.state.email,
+            password: this.state.password
+          }); //pobranie id uzytownika
+          userRef.then(response => {
+            this.handleDownloadUserId(response.id);
+          });
         }
       );
       //wysyłka do FireStore
       const db = firebase.firestore();
       db.settings({
         timestampsInSnapshots: true
-      });
-      const userRef = db.collection("users").add({
-        email: this.state.email,
-        password: this.state.password
-      });
-      //pobranie id uzytownika
-      userRef.then(response => {
-        this.handleDownloadUserId(response.id);
       });
     }
   };

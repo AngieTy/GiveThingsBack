@@ -1,5 +1,6 @@
 import fire from "../../components/Firebase/Fire";
-
+import "firebase/firestore";
+import firebase from "firebase/app";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const REGISTER = "REGISTERED";
@@ -46,6 +47,15 @@ export const registerUser = (email, password) => dispatch => {
     })
     .catch(error => {
       console.log(error);
+      const db = firebase.firestore();
+      db.collection("users")
+        .where("email", "==", "")
+        .get()
+        .then(response => {
+          response.forEach(resp => {
+            resp.ref.delete();
+          });
+        });
     });
 };
 
