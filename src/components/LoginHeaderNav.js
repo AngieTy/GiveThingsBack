@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import LoginBurgerMenu from "./LoginBugerMenu";
 
 class LoginHeaderNav extends Component {
   render() {
     return (
       <div className="home-nav-box">
+        <LoginBurgerMenu />
         <div className="home-logs">
           <Link to="/logowanie">
             <button className="home-log-btn"> Zaloguj się </button>

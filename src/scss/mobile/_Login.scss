@@ -1,0 +1,105 @@
+@media screen and (max-width: 1200px) {
+  .login {
+    .login-container {
+      img {
+        width: 20%;
+      }
+      .login-form {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .login {
+    .login-container {
+      img {
+        width: 23%;
+      }
+      .login-form {
+        width: 50%;
+        .login-input-box {
+          width: 75%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .login {
+    .login-container {
+      .login-form {
+        width: 60%;
+        // .login-input-box {
+        //   width: 75%;
+        // }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .login {
+    .login-container {
+      img {
+        width: 28%;
+      }
+      .login-form {
+        width: 70%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  .login {
+    .login-container {
+      img {
+        width: 38%;
+      }
+      .login-form {
+        width: 80%;
+        .login-input-box {
+          width: 85%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .login {
+    .login-container {
+      img {
+        width: 44%;
+      }
+      .login-form {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .login {
+    .login-container {
+      img {
+        width: 54%;
+      }
+      .login-form {
+        width: 100%;
+        .login-input-box {
+          width: 85%;
+          height: 44vh;
+          justify-content: space-around;
+          .login-input-title:last-of-type {
+            .error {
+              bottom: -30px;
+            }
+          }
+        }
+        .login-btns-box {
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
