@@ -1,4 +1,5 @@
 import {
+  LOGIN_FAILURE,
   LOGIN_SUCCESS,
   LOGOUT_SUCCESS,
   REGISTER,
@@ -8,6 +9,7 @@ import {
 export default (
   state = {
     isAuthenticated: false,
+    isVerifying: false,
     user: {},
     id: {}
   },
@@ -18,7 +20,13 @@ export default (
       return {
         ...state,
         isAuthenticated: true,
+        isVerifying: true,
         user: action.user
+      };
+    case LOGIN_FAILURE:
+      return {
+        ...state,
+        isVerifying: false
       };
     case USER_ID:
       return {

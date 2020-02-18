@@ -21,14 +21,24 @@
         @include flex(column, center);
         justify-content: center;
         .form-header {
+          position: relative;
           @include header;
           font-size: 1.7rem;
           padding-bottom: 10px;
+          .correct {
+            position: absolute;
+            bottom: -75px;
+            left: 35px;
+            color: green;
+            font-size: 0.8rem;
+            font-weight: 600;
+          }
         }
         .form-img {
           width: 33%;
           margin-bottom: 20px;
         }
+
         .form-inputs-box {
           margin-bottom: 20px;
           width: 70%;

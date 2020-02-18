@@ -13,7 +13,8 @@ class Login extends Component {
     email: "",
     password: "",
     emailError: "",
-    passwordError: ""
+    passwordError: "",
+    authError: ""
   };
 
   handleChangeInputValue = e => {
@@ -61,28 +62,34 @@ class Login extends Component {
           email: "",
           password: "",
           emailError: "",
-          passwordError: ""
+          passwordError: "",
+          authError: ""
         },
         () => {
           this.props.login(email, password);
+          //zapytanie do bazy o id uzytkownika, ktory sie loguje
+          const db = firebase.firestore();
+          db.collection("users")
+            .where("email", "==", this.state.email)
+            .get()
+            .then(response => {
+              response.docs.forEach(doc => {
+                this.handleDownloadLoggedUserId(doc.id);
+              });
+            });
         }
       );
-
-      //zapytanie do bazy o id uzytkownika, ktory sie loguje
-      const db = firebase.firestore();
-      db.collection("users")
-        .where("email", "==", this.state.email)
-        .get()
-        .then(response => {
-          response.docs.forEach(doc => {
-            this.handleDownloadLoggedUserId(doc.id);
-          });
-        });
     }
   };
 
   render() {
-    const { email, password, passwordError, emailError } = this.state;
+    const {
+      email,
+      password,
+      passwordError,
+      emailError,
+      authError
+    } = this.state;
     const { isAuthenticated } = this.props;
     if (isAuthenticated) {
       return <Redirect to="/" />;
@@ -118,6 +125,7 @@ class Login extends Component {
                     onChange={this.handleChangeInputValue}
                   />
                   {<span className="error">{passwordError}</span>}
+                  {<span className="error">{authError}</span>}
                 </label>
               </div>
               <div className="login-btns-box">

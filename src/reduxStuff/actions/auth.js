@@ -5,6 +5,7 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
 export const REGISTER = "REGISTERED";
 export const USER_ID = "ACHIEVED USER ID";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
 
 const userId = id => {
   return {
@@ -24,6 +25,11 @@ const receiveLogin = user => {
   return {
     type: LOGIN_SUCCESS,
     user
+  };
+};
+const loginError = () => {
+  return {
+    type: LOGIN_FAILURE
   };
 };
 
@@ -68,6 +74,7 @@ export const loginUser = (email, password) => dispatch => {
     })
     .catch(error => {
       console.log(error);
+      dispatch(loginError());
     });
 };
 

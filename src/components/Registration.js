@@ -15,6 +15,7 @@ class Registration extends Component {
     errorEmail: "",
     errorPassword: "",
     errorRepeatPassword: "",
+    errorAuthMessage: "",
     user: ""
   };
 
@@ -39,7 +40,7 @@ class Registration extends Component {
       const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(String(email).toLowerCase());
     };
-    const { email, password, repeatPassword, id } = this.state;
+    const { email, password, repeatPassword } = this.state;
 
     if (password.length < 6) {
       this.setState({
@@ -80,7 +81,8 @@ class Registration extends Component {
           repeatPassword: "",
           errorEmail: "",
           errorPassword: "",
-          errorRepeatPassword: ""
+          errorRepeatPassword: "",
+          errorAuthMessage: ""
         },
         () => {
           this.props.register(email, password);
@@ -93,10 +95,19 @@ class Registration extends Component {
           });
         }
       );
-      //wysyłka do FireStore
+      //wysyłka do FireStore - PROBLEM Z WALIDACJA FIREBASE
       const db = firebase.firestore();
       db.settings({
         timestampsInSnapshots: true
+      });
+    }
+    if (!this.props.isAuthenticated) {
+      this.setState({
+        errorAuthMessage: "Podany email istnieje w bazie."
+      });
+    } else {
+      this.setState({
+        errorAuthMessage: ""
       });
     }
   };
@@ -108,7 +119,8 @@ class Registration extends Component {
       repeatPassword,
       errorEmail,
       errorPassword,
-      errorRepeatPassword
+      errorRepeatPassword,
+      errorAuthMessage
     } = this.state;
     const { isAuthenticated } = this.props;
     if (isAuthenticated) {
@@ -155,6 +167,7 @@ class Registration extends Component {
                     onChange={this.handleChange}
                   />
                   {<span className="error">{errorRepeatPassword}</span>}
+                  {<span className="error">{errorAuthMessage}</span>}
                 </label>
               </div>
               <div className="registration-btns-box">

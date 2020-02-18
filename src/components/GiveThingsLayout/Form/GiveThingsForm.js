@@ -146,6 +146,8 @@ class GiveThingsForm extends Component {
     }
   };
 
+  //
+
   //pobranie opcjonalnej organizacji z 3 etapu
 
   handleGetLocalizationSpecific = organization => {

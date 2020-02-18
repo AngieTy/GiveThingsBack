@@ -11,7 +11,7 @@ class HomeForm extends Component {
     errorName: "",
     errorEmail: "",
     errorTextarea: "",
-    succes: false
+    correctMessage: ""
   };
 
   handleChangeInputValue = e => {
@@ -105,7 +105,8 @@ class HomeForm extends Component {
         message: "",
         errorName: "",
         errorEmail: "",
-        errorTextarea: ""
+        errorTextarea: "",
+        correctMessage: "Pomyślnie wysłano wiadomość."
       });
     }
   };
@@ -117,7 +118,8 @@ class HomeForm extends Component {
       message,
       errorName,
       errorEmail,
-      errorTextarea
+      errorTextarea,
+      correctMessage
     } = this.state;
     return (
       <section className="home-form" id={this.props.name}>
@@ -128,8 +130,12 @@ class HomeForm extends Component {
               onSubmit={this.handleSubmitForm}
               noValidate
             >
-              <h2 className="form-header">Skontaktuj się z nami</h2>
+              <h2 className="form-header">
+                Skontaktuj się z nami
+                {<span className="correct">{correctMessage}</span>}
+              </h2>
               <img src={ImgDeco} alt="image_decoration" className="form-img" />
+
               <div className="form-inputs-box">
                 <label className="form-input-title">
                   Wpisz swoje imię

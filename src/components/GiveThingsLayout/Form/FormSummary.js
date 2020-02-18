@@ -4,7 +4,6 @@ import arrows from "../../../assets/assets/Icon-4.svg";
 
 class FormSummary extends Component {
   //powrot do etapu 4
-
   handlePrevStep = e => {
     e.preventDefault();
     this.props.prev();
@@ -18,6 +17,9 @@ class FormSummary extends Component {
     this.props.sendData();
   };
   render() {
+    const helpGroupsElements = this.props.data.helpGroups.map((element, i) => {
+      return <span key={i}>, {element}</span>;
+    });
     return (
       <div className="form-summary">
         <h2 className="form-summary-header">Podsumowanie Twojej darowizny</h2>
@@ -26,8 +28,8 @@ class FormSummary extends Component {
           <div className="form-summary-box">
             <img src={clothes} alt="tshirt-img" />
             <span className="form-summary-clothes">
-              {this.props.data.bags}, {this.props.data.type},{" "}
-              {this.props.data.helpGroups}
+              {this.props.data.bags}, {this.props.data.type}
+              {helpGroupsElements}
             </span>
           </div>
           <div className="form-summary-box">
