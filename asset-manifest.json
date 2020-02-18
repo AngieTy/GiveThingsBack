@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/GiveThingsBack/static/css/main.76a1c31c.chunk.css",
-    "main.js": "/GiveThingsBack/static/js/main.f1832f60.chunk.js",
-    "main.js.map": "/GiveThingsBack/static/js/main.f1832f60.chunk.js.map",
+    "main.js": "/GiveThingsBack/static/js/main.782d42b9.chunk.js",
+    "main.js.map": "/GiveThingsBack/static/js/main.782d42b9.chunk.js.map",
     "runtime-main.js": "/GiveThingsBack/static/js/runtime-main.cc4cf30c.js",
     "runtime-main.js.map": "/GiveThingsBack/static/js/runtime-main.cc4cf30c.js.map",
     "static/js/2.105fe4d4.chunk.js": "/GiveThingsBack/static/js/2.105fe4d4.chunk.js",
     "static/js/2.105fe4d4.chunk.js.map": "/GiveThingsBack/static/js/2.105fe4d4.chunk.js.map",
     "index.html": "/GiveThingsBack/index.html",
-    "precache-manifest.0009e21bbb982a8be35fd264cfa6eddf.js": "/GiveThingsBack/precache-manifest.0009e21bbb982a8be35fd264cfa6eddf.js",
+    "precache-manifest.2f551c1450def31a67587344ce6a0c90.js": "/GiveThingsBack/precache-manifest.2f551c1450def31a67587344ce6a0c90.js",
     "service-worker.js": "/GiveThingsBack/service-worker.js",
     "static/css/main.76a1c31c.chunk.css.map": "/GiveThingsBack/static/css/main.76a1c31c.chunk.css.map",
     "static/js/2.105fe4d4.chunk.js.LICENSE": "/GiveThingsBack/static/js/2.105fe4d4.chunk.js.LICENSE",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.cc4cf30c.js",
     "static/js/2.105fe4d4.chunk.js",
     "static/css/main.76a1c31c.chunk.css",
-    "static/js/main.f1832f60.chunk.js"
+    "static/js/main.782d42b9.chunk.js"
   ]
 }
