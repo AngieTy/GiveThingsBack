@@ -86,19 +86,19 @@ class Registration extends Component {
         },
         () => {
           this.props.register(email, password);
-          const userRef = db.collection("users").add({
-            email: this.state.email,
-            password: this.state.password
-          }); //pobranie id uzytownika
-          userRef.then(response => {
-            this.handleDownloadUserId(response.id);
-          });
         }
       );
       //wysyłka do FireStore - PROBLEM Z WALIDACJA FIREBASE
       const db = firebase.firestore();
       db.settings({
         timestampsInSnapshots: true
+      });
+      const userRef = db.collection("users").add({
+        email: this.state.email,
+        password: this.state.password
+      }); //pobranie id uzytownika
+      userRef.then(response => {
+        this.handleDownloadUserId(response.id);
       });
     }
     if (!this.props.isAuthenticated) {
