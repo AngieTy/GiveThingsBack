@@ -1,3 +1,17 @@
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+  .home-header {
+    height: 50vh;
+    .home-header-img {
+      height: 100%;
+      .home-header-container {
+        @include flex(column, flex-end);
+
+        height: 10vh;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .home-header {
     .home-header-img {
@@ -10,12 +24,27 @@
     }
   }
 }
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) and (orientation: landscape) {
+  .home-header {
+    height: 160vh;
+    .home-header-img {
+      height: 100%;
+    }
+  }
+}
+@media screen and (max-width: 800px) and (orientation: portrait) {
   .home-header {
     height: 90vh;
     .home-header-img {
       height: 90vh;
+    }
+  }
+}
+@media screen and (max-width: 350px) and (orientation: portrait) {
+  .home-header {
+    height: 120vh;
+    .home-header-img {
+      height: 100%;
     }
   }
 }

@@ -22,6 +22,16 @@
     }
   }
 }
+@media screen and (max-height: 1400px) {
+  .home-about {
+    height: 50vh;
+    .about-container {
+      img {
+        width: 42%;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 750px) {
   .home-about {

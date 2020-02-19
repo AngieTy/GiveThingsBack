@@ -81,3 +81,21 @@
     }
   }
 }
+
+@media screen and (max-height: 1400px) {
+  .home-form {
+    height: 100vh;
+    .home-form-container {
+      .home-opacity-modifier {
+        .home-form-form {
+          width: 80%;
+          float: none;
+          margin: 0 auto;
+          .form-img {
+            width: 40%;
+          }
+        }
+      }
+    }
+  }
+}

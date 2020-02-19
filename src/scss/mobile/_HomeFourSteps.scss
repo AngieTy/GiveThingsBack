@@ -23,7 +23,13 @@
     }
   }
 }
-
+@media screen and (max-height: 1400px) {
+  .home-four-steps {
+    .four-steps-container {
+      height: 30vh;
+    }
+  }
+}
 @media screen and (max-width: 600px) {
   .home-four-steps {
     @include flex(column, center);
