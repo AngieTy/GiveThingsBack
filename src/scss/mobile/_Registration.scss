@@ -1,0 +1,203 @@
+@media screen and (max-width: 1400px) and (orientation: landscape) {
+  .registration {
+    height: 100vh;
+    .registration-container {
+      margin-top: 100px;
+      img {
+        width: 20%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .registration {
+    .registration-container {
+      margin-top: 100px;
+      img {
+        width: 25%;
+      }
+      .registration-form {
+        width: 60%;
+        .registration-input-box {
+          .registration-input-title {
+            margin-bottom: 70px;
+            &:first-child {
+              margin-top: 50px;
+            }
+            &:last-child {
+              margin-bottom: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1100px) and (orientation: landscape) {
+  .registration {
+    .registration-container {
+      margin-top: 30px;
+      img {
+        width: 22%;
+      }
+      .registration-form {
+        width: 50%;
+        .registration-input-box {
+          .registration-input-title {
+            margin-bottom: 30px;
+            &:first-child {
+              margin-top: 30px;
+            }
+            &:last-child {
+              margin-bottom: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .registration {
+    .registration-container {
+      img {
+        width: 26%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (orientation: portrait) {
+  .registration {
+    .registration-container {
+      img {
+        width: 30%;
+      }
+      .registration-form {
+        width: 60%;
+        .registration-input-box {
+          width: 80%;
+          .registration-input-title {
+            margin-bottom: 30px;
+            &:first-child {
+              margin-top: 30px;
+            }
+            &:last-child {
+              margin-bottom: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (orientation: landscape) {
+  .registration {
+    height: 187vh;
+    .registration-container {
+      img {
+        width: 30%;
+      }
+      .registration-form {
+        width: 60%;
+        .registration-input-box {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) and (orientation: landscape) {
+  .registration {
+    height: 167vh;
+  }
+}
+
+@media screen and (max-width: 670px) and (orientation: landscape) {
+  .registration {
+    height: 177vh;
+    .registration-container {
+      img {
+        width: 35%;
+      }
+      .registration-form {
+        width: 89%;
+        .registration-input-box {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 570px) and (orientation: landscape) {
+  .registration {
+    height: 195vh;
+    .registration-container {
+      img {
+        width: 40%;
+      }
+      .registration-form {
+        .registration-input-box {
+          width: 70%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) and (orientation: portrait) {
+  .registration {
+    .registration-container {
+      margin-top: 30px;
+      img {
+        width: 44%;
+      }
+      .registration-form {
+        width: 100%;
+        .registration-input-box {
+          width: 85%;
+          .registration-input-title {
+            margin-bottom: 60px;
+            &:first-child {
+              margin-top: 40px;
+            }
+            &:last-child {
+              margin-bottom: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) and (orientation: portrait) {
+  .registration {
+    height: 110vh;
+    .registration-container {
+      img {
+        width: 55%;
+      }
+      .registration-form {
+        .registration-input-box {
+          .registration-input-title {
+            &:nth-child(2) {
+              .error {
+                bottom: -32px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) and (orientation: portrait) {
+  .registration {
+    height: 125vh;
+  }
+}

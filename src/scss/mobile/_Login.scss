@@ -33,6 +33,17 @@
       }
       .login-form {
         width: 0%;
+        .login-input-box {
+          .login-input-title {
+            margin-bottom: 30px;
+            &:first-child {
+              margin-top: 30px;
+            }
+            &:last-child {
+              margin-bottom: 45px;
+            }
+          }
+        }
       }
     }
   }
@@ -109,7 +120,7 @@
 }
 @media screen and (max-width: 670px) and (orientation: landscape) {
   .login {
-    height: 180vh;
+    height: 167vh;
     .login-container {
       img {
         width: 43%;
@@ -125,7 +136,7 @@
 }
 @media screen and (max-width: 570px) and (orientation: landscape) {
   .login {
-    height: 200vh;
+    height: 180vh;
     .login-container {
       img {
         width: 47%;
