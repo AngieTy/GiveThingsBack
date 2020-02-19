@@ -1,14 +1,13 @@
 .home-form {
   position: relative;
   margin-top: 60px;
-  height: 115vh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
   .home-form-container {
     background-image: url("../../assets/assets/Background-Contact-Form.jpg");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: 100%;
     height: 100%;
     .home-opacity-modifier {
       width: 100%;

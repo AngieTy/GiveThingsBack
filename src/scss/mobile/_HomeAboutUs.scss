@@ -1,6 +1,42 @@
+@media screen and (max-height: 1400px) and (orientation: portrait) {
+  .home-about {
+    height: 60vh;
+    .about-container {
+      img {
+        width: 42%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1030px) and (orientation: portrait) {
+  .home-about {
+    height: 45vh;
+    .about-container {
+      img {
+        width: 42%;
+      }
+    }
+    .team-box {
+      .team {
+        left: -25%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1030px) and (orientation: landscape) {
+  .home-about {
+    height: 70vh;
+    .team-box {
+      .team {
+        left: -25%;
+      }
+    }
+  }
+}
 @media screen and (max-width: 1000px) {
   .home-about {
-    height: 80vh;
+    height: 150vh;
     @include flex(row, center);
     .about-container {
       .about-header {
@@ -17,23 +53,13 @@
     }
     .team-box {
       .team {
-        left: -30%;
-      }
-    }
-  }
-}
-@media screen and (max-height: 1400px) {
-  .home-about {
-    height: 50vh;
-    .about-container {
-      img {
-        width: 42%;
+        left: -45%;
       }
     }
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 770px) {
   .home-about {
     height: 100%;
     background-color: $firstColor;

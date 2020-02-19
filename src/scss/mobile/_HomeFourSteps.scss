@@ -1,3 +1,26 @@
+@media screen and (max-width: 1500px) and (orientation: landscape) {
+  .home-four-steps {
+    .four-steps-container {
+      height: 50vh;
+    }
+  }
+}
+
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+  .home-four-steps {
+    .four-steps-container {
+      height: 30vh;
+    }
+  }
+}
+
+@media screen and(max-width: 1024px) and (orientation: landscape) {
+  .home-four-steps {
+    .four-steps-container {
+      height: 45vh;
+    }
+  }
+}
 @media screen and (max-width: 1000px) {
   .home-four-steps {
     margin-top: 40px;
@@ -23,13 +46,15 @@
     }
   }
 }
-@media screen and (max-height: 1400px) {
+
+@media screen and (max-width: 830px) and (orientation: landscape) {
   .home-four-steps {
     .four-steps-container {
-      height: 30vh;
+      height: 85vh;
     }
   }
 }
+
 @media screen and (max-width: 600px) {
   .home-four-steps {
     @include flex(column, center);

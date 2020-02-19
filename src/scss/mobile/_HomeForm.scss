@@ -1,11 +1,27 @@
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1400px) {
   .home-form {
     .home-form-container {
-      background-size: cover;
       .home-opacity-modifier {
         .home-form-form {
           .form-img {
             width: 45%;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-height: 1400px) and (orientation: portrait) {
+  .home-form {
+    height: 100vh;
+    .home-form-container {
+      .home-opacity-modifier {
+        .home-form-form {
+          width: 80%;
+          float: none;
+          margin: 0 auto;
+          .form-img {
+            width: 40%;
           }
         }
       }
@@ -33,9 +49,14 @@
   }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) and (orientation: landscape) {
   .home-form {
-    height: 130vh;
+    height: 155vh;
+  }
+}
+@media screen and (max-width: 750px) and (orientation: portrait) {
+  .home-form {
+    height: 100vh;
     margin-top: 10px;
     .home-form-container {
       .home-opacity-modifier {
@@ -55,8 +76,14 @@
     }
   }
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) and (orientation: landscape) {
   .home-form {
+    height: 160vh;
+  }
+}
+@media screen and (max-width: 570px) {
+  .home-form {
+    height: 190vh;
     .home-form-container {
       .home-opacity-modifier {
         .home-form-form {
@@ -68,31 +95,53 @@
     }
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) and (orientation: portrait) {
   .home-form {
+    height: 100vh;
     .home-form-container {
       .home-opacity-modifier {
         .home-form-form {
           .form-img {
             width: 65%;
           }
+          .form-inputs-box {
+            .error {
+              line-height: 100%;
+              bottom: -20px;
+            }
+          }
+          .form-text-box {
+            label {
+              .error {
+                line-height: 100%;
+                bottom: 10px;
+              }
+            }
+          }
         }
       }
     }
   }
 }
-
-@media screen and (max-height: 1400px) {
+@media screen and (max-width: 360px) and (orientation: portrait) {
   .home-form {
-    height: 100vh;
+    height: 110vh;
     .home-form-container {
       .home-opacity-modifier {
         .home-form-form {
-          width: 80%;
-          float: none;
-          margin: 0 auto;
-          .form-img {
-            width: 40%;
+          .form-inputs-box {
+            .error {
+              line-height: 100%;
+              bottom: -30px;
+            }
+          }
+          .form-text-box {
+            label {
+              .error {
+                line-height: 100%;
+                bottom: 0px;
+              }
+            }
           }
         }
       }
