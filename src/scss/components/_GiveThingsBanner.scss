@@ -1,13 +1,13 @@
 .give-things-banner {
   width: 600px;
   margin-top: 70px;
-  align-self: center;
+  align-self: flex-end;
   text-align: center;
   .banner-title {
     @include header;
     text-align: center;
   }
-  img {
+  .img-decoration {
     width: 40%;
     padding: 20px 0 25px 0;
   }

@@ -8,7 +8,7 @@ class GiveThingsBanner extends Component {
         <h1 className="banner-title">
           Oddaj rzeczy, których już nie chcesz POTRZEBUJĄCYM
         </h1>
-        <img src={ImgDeco} alt="image_decoration" />
+        <img src={ImgDeco} alt="image_decoration" className="img-decoration" />
         <p className="banner-content">Wystarczą 4 proste kroki:</p>
         <div className="banner-content-container">
           <div className="banner-content-steps">

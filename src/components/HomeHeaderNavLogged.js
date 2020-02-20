@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { connect } from "react-redux";
 import { logoutUser } from "../reduxStuff/actions/auth";
+import HomeBurgerMenu from "./HomeBugerMenu";
 
 class HomeHeaderNavLogged extends Component {
   handleLogout = () => {
@@ -12,6 +13,7 @@ class HomeHeaderNavLogged extends Component {
   render() {
     return (
       <div className="home-nav-box">
+        <HomeBurgerMenu />
         <div className="home-logged">
           <span className="home-user-logged">{this.props.user}</span>
           <Link to="/oddaj-rzeczy">

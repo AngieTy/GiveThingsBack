@@ -1,0 +1,116 @@
+@media screen and (max-width: 850px) and(orientation: landscape) {
+  .give-things-banner {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 850px) and (orientation: portrait) {
+  .give-things-banner {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 639px) and (orientation: landscape) {
+  .give-things-banner {
+    width: 100vw;
+    .banner-content-container {
+      justify-content: center;
+      .banner-content-steps {
+        font-size: 1rem;
+        padding-bottom: 10px;
+        width: 110px;
+        height: 110px;
+        &:before {
+          width: 105px;
+          height: 105px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 639px) and (orientation: portrait) {
+  .give-things-banner {
+    width: 100vw;
+    @include flex(column, center);
+    .banner-title {
+      width: 85%;
+    }
+    .banner-content {
+      width: 85%;
+    }
+    .img-decoration {
+      width: 50%;
+    }
+    .banner-content-container {
+      justify-content: center;
+      .banner-content-steps {
+        font-size: 1rem;
+        width: 110px;
+        height: 110px;
+        &:before {
+          width: 105px;
+          height: 105px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+  .give-things-banner {
+    height: 100%;
+    .banner-content-container {
+      flex-wrap: wrap;
+      .banner-content-steps {
+        padding: 20px 20px;
+        font-size: 1.3rem;
+        width: 140px;
+        height: 140px;
+        &:before {
+          width: 140px;
+          height: 140px;
+          left: 20px;
+          top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 400px) and (orientation: portrait) {
+  .give-things-banner {
+    .banner-content-container {
+      .banner-content-steps {
+        padding: 20px 20px;
+        font-size: 1.3rem;
+        width: 120px;
+        height: 120px;
+        &:before {
+          width: 120px;
+          height: 120px;
+          left: 20px;
+          top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) and (orientation: portrait) {
+  .give-things-banner {
+    .banner-content-container {
+      .banner-content-steps {
+        padding: 10px 10px;
+        font-size: 1.3rem;
+        width: 110px;
+        height: 110px;
+        &:before {
+          width: 110px;
+          height: 110px;
+          left: 10px;
+          top: 10px;
+        }
+      }
+    }
+  }
+}

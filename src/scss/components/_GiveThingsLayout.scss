@@ -2,15 +2,16 @@
   position: relative;
   .give-things-header {
     height: 100vh;
+    background-image: url("../../assets/assets/Form-Hero-Image.jpg");
+    background-repeat: no-repeat;
+    background-position: -20%;
+    background-size: auto 100%;
     display: flex;
-    width: 100%;
-    img {
-      width: 45%;
-    }
+    justify-content: flex-end;
     .give-things-header-container {
       @include flex(column, flex-end);
-      width: 50%;
-      height: 30vh;
+      width: 100%;
+      margin-right: 5%;
     }
   }
 }

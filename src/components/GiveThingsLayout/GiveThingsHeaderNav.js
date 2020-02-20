@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../reduxStuff/actions/auth";
+import LoginBurgerMenu from "../LoginBugerMenu";
 
 class GiveThingsHeaderNav extends Component {
   handleLogoutUser = () => {
@@ -11,6 +12,7 @@ class GiveThingsHeaderNav extends Component {
   render() {
     return (
       <div className="home-nav-box">
+        <LoginBurgerMenu />
         <div className="home-logged">
           <span className="home-user-logged">{this.props.user}</span>
           <Link to="/oddaj-rzeczy">

@@ -1,0 +1,109 @@
+@media screen and (max-width: 1440px) and (orientation: landscape) {
+  .give-things {
+    .give-things-header {
+      background-position: -80%;
+    }
+  }
+}
+
+@media screen and (max-width: 1380px) and (orientation: landscape) {
+  .give-things {
+    .give-things-header {
+      background-position: -400px;
+    }
+  }
+}
+@media screen and (max-width: 1100px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      height: 50vh;
+      background-position: -300px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .give-things {
+    .give-things-header {
+      height: 180vh;
+      background-image: none;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (orientation: landscape) {
+  .give-things {
+    .give-things-header {
+      height: 180vh;
+      .give-things-header-container {
+        margin-right: 0;
+        .home-nav-box {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      padding: 0 15px;
+      background-image: none;
+      height: 90vh;
+      .give-things-header-container {
+        margin-right: 0;
+        .home-nav-box {
+          margin-right: 5%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) and (orientation: landscape) {
+  .give-things {
+    .give-things-header {
+      height: 190vh;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      height: 110vh;
+    }
+  }
+}
+
+@media screen and (max-width: 440px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      height: 125vh;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      height: 125vh;
+    }
+  }
+}
+
+@media screen and (max-width: 360px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      height: 145vh;
+    }
+  }
+}
+
+@media screen and (max-width: 330px) and (orientation: portrait) {
+  .give-things {
+    .give-things-header {
+      height: 155vh;
+    }
+  }
+}
